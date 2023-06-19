@@ -867,7 +867,9 @@
           </div>
         </div>
       </div>
-      <button id="test">okkk</button>
+      <button id="decreasetext">A -</button>
+    <button id="resettext">A</button>
+    <button id="increasetext">A +</button>
     </section>
   </div>
   <!-- end main-content -->

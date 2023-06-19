@@ -990,6 +990,31 @@ $('#decreasetext').click(function() {
   });
 });
 
+
+$('#increasetext-mobile').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize + 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
+$('#resettext-mobile').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    $(this).css('font-size', '');
+    $(this).removeStyle('font-size');
+  });
+});
+
+$('#decreasetext-mobile').click(function() {
+    alert("sjdfhks");
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize - 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
 // Custom method to remove inline style
 $.fn.removeStyle = function(style) {
   var search = new RegExp(style + '[^;]+;?', 'g');

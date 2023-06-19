@@ -13,9 +13,9 @@
               <div class="widget no-border m-0">
                 <div class="mt-0 mb-0 flip sm-text-left gigw">
                   <div class="font-12 text-black-333 mb-0 font-weight-500 web-font-div">
-                    <button id="decreasetext">A -</button>
-                    <button id="resettext">A</button>
-                    <button id="increasetext">A +</button>
+                    <button id="decreasetext-mobile">A -</button>
+                    <button id="resettext-mobile">A</button>
+                    <button id="increasetext-mobile">A +</button>
                   </div>
                 </div>
               </div>

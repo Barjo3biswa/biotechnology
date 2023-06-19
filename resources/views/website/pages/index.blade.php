@@ -729,7 +729,7 @@
                   <div class="icon-box border-1px p-15 mb-30">
                     <a class="icon pull-left sm-pull-none flip" href="#">
                       <!-- <i class="flaticon-gardening-construction-2 text-theme-colored"></i> -->
-                      <i class="flaticon-gardening-plant text-theme-colored"></i>
+                      {{-- <i class="flaticon-gardening-plant text-theme-colored"></i> --}}
                       <img src="{{asset('icons-test') }}/signal-status.png" alt="" width="40">
                     </a>
                     <div class="ml-70 ml-sm-0">

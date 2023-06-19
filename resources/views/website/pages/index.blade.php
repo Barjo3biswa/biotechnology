@@ -708,6 +708,7 @@
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">A Tool for Socio-Economic Development</h5>
                       <p>Biotechnology signifies any technique “which uses living organisms or parts thereof to make or modify products... </p>
+                      <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                   </div>
                 </div>
@@ -719,7 +720,7 @@
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">The Biotechnology Potential of Assam</h5>
                       <p style="text-align: left;">Assam is one of the biodiversity hot spot regions and is very rich in plant, animal and microbial resources. It is considered... </p>
-
+                      <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                   </div>
                 </div>
@@ -732,6 +733,7 @@
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Status of Biotechnology in Assam</h5>
                       <p style="text-align: left;">The biotechnology industrial development in the state is yet to take place. However, initial entrepreneurial activity is...</p>
+                      <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                   </div>
                 </div>
@@ -743,6 +745,7 @@
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Biotechnology Initiative in Assam</h5>
                       <p style="text-align: left;">Government of Assam has been providing financial support to the state universities for biotechnology infrastructure...</p>
+                      <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                   </div>
                 </div>
@@ -754,7 +757,8 @@
                       <div class="ml-70 ml-sm-0">
                         <h5 class="icon-box-title mt-15 mb-5">Key Drivers & Specific Features For Biotechnology Policy Formulation</h5>
                         <p style="text-align: left;">It is apparent that biotechnology has interface with various sectors including agriculture, horticulture, animal husbandry...</p>
-                      </div>
+                        <a class="btn btn-gray btn-sm" href="#">Read more</a>
+                    </div>
                     </div>
                 </div>
               </div>

@@ -15,7 +15,7 @@
                                 <th>Application No</th>
                                 <th>Application Type</th>
                                 <th>Application Status</th>
-                                <th>Action<button class="btn btn-primary" wire:click="testThis()">Test</button></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

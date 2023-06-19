@@ -50,7 +50,7 @@ class AnnexureI extends Component
 
     public function render()
     {
-        dd("ok");
+        // dd("ok");
         $this->entity_types=EntityType::get();
         $this->application_list=Application::where('user_id',Auth::user()->id)->get();
         $this->assistance_sought = AssistanceSoughtMaster::get();
@@ -61,7 +61,7 @@ class AnnexureI extends Component
         dd("ok");
     }
     public function applicationStep($status){
-        dd("ok");
+        // dd("ok");
         if($status=='apply'){
             $this->app_list=0;
         }else{

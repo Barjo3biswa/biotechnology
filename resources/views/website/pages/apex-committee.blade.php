@@ -109,7 +109,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-9">
-                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Apex Committe</h2>
+                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Apex Committee</h2>
                 <ol class="ordered-list-padding" type="A">
                     <li>There shall be an Apex Committee to monitor the functioning of the Assam Biotechnology Council and to provide necessary approvals.</li>
                     <li>The Apex Committee will have Chief Minister of Assam as the chairperson and Minister in Charge of Science & Technology Deptt as the Vice Chairperson.</li>
@@ -118,7 +118,7 @@
                     <li>The Apex committee shall frame changes in the policy and also, review and monitor the execution of the policy objectives.</li>
                     <li>The Apex committee shall have the power to sanction the disbursement of various incentives under this policy.</li>
                 </ol>
-                <h4 class="title-pattern1 mt-30 mb-30">The Apex Committe Members</h4>
+                <h4 class="title-pattern1 mt-30 mb-30">The Apex Committee Members</h4>
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover">
                       <thead class="table-dark">
@@ -191,8 +191,8 @@
                     <!-- <h5 class="widget-title line-bottom">Quick Links</h5> -->
                     <h2 class="widget-title line-bottom"><b>Quick</b> <span class="text-theme-colored">Links</span></h2>
                     <ul class="list-divider list-border list check sidemenu-list">
-                      <li><a href="apex-committee.html">Apex Committe</a></li>
-                      <li><a href="executive-committe.html">Executive Committee</a></li>
+                      <li><a href="{{route('apex-committee')}}">Apex Committee</a></li>
+                      <li><a href="{{route('exe-committee')}}">Executive Committee</a></li>
                     </ul>
                   </div>
                   <div class="widget">

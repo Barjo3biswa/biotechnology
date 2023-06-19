@@ -109,7 +109,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-9">
-                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Executive Committe</h2>
+                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Executive Committee</h2>
                 <ol class="ordered-list-padding" type="A">
                     <li>The senior-most secretary of Science and Technology department, Government of Assam will be the chairperson of the Executive Committee and the Director, Assam Biotechnology Council will be it's member secretary.</li>
                     <li>The executive committee shall also consist of other stake holders representative.</li>
@@ -184,8 +184,8 @@
                     <!-- <h5 class="widget-title line-bottom">Quick Links</h5> -->
                     <h2 class="widget-title line-bottom"><b>Quick</b> <span class="text-theme-colored">Links</span></h2>
                     <ul class="list-divider list-border list check sidemenu-list">
-                      <li><a href="apex-committee.html">Apex Committe</a></li>
-                      <li><a href="executive-committe.html">Executive Committee</a></li>
+                        <li><a href="{{route('apex-committee')}}">Apex Committee</a></li>
+                        <li><a href="{{route('exe-committee')}}">Executive Committee</a></li>
                     </ul>
                   </div>
                   <div class="widget">

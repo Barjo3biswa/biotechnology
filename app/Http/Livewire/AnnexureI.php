@@ -192,7 +192,7 @@ class AnnexureI extends Component
                     'pan_coppyii'=> $this->storeDocs($this->pan_coppyii,'pan_coppyii'),
                     'registration_coppy'=> $this->storeDocs($this->registration_coppy,'registration_coppy'),
                 ]);
-                if(count($this->director_details)>0){
+                if($this->director_details){
                     foreach($this->director_details as $details){
                         DirectorsPromoter::create([
                             'application_id' => $this->application_id,

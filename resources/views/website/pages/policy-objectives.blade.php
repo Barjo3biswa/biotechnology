@@ -108,7 +108,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="title-pattern1 mt-30 mb-30"><span class="title-pattern title-pattern-color mt-0 mb-30">2.2</span> <span>Policy Objectives</h2>
+                <h2 class="title-pattern1 mt-30 mb-30">Policy Objectives</h2>
                 <ol class="ordered-list-padding" type="A">
                     <li>To create a vibrant ecosystem in the state for the development of human resources and industrial ventures.</li>
                     <li>To promote education and research & development in biotechnology and allied areas.</li>

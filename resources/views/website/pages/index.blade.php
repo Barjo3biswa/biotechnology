@@ -517,7 +517,7 @@
                   <div class="icon-box mt-20">
                     <a class="icon icon-flat icon-border-effect effect-flat icon-md" href="#">
                     <!-- <i class="flaticon-gardening-trolley-1 text-theme-colored font-48"></i> -->
-                    <img src="./icons/vision.png" alt="">
+                    <img src="{{asset('icons') }}/vision.png" alt="">
                    </a>
                     <h5 class="Personal trainer text-uppercase mt-0"><a href="#"><strong>Vision</strong></a></h5>
                     <!-- <p>The vision of this policy shall be to attain high capability in biotechnology education, research and commercialization...</p> -->
@@ -527,7 +527,7 @@
                   <div class="icon-box mt-20">
                     <a class="icon icon-flat icon-border-effect effect-flat icon-md" href="#">
                        <!-- <i class="flaticon-gardening-people-3 text-theme-colored font-48"></i> -->
-                       <img src="./icons/policy.png" alt="">
+                       <img src="{{asset('icons') }}/policy.png" alt="">
                     </a>
                     <h5 class="Personal trainer text-uppercase mt-0"><a href="#"><strong>Policy Objectives</strong></a></h5>
                     <!-- <p>To create a vibrant ecosystem in the state for the development of human resources and industrial ventures...</p> -->
@@ -537,7 +537,7 @@
                   <div class="icon-box mt-20">
                     <a class="icon icon-border-effect effect-flat icon-md" href="#">
                      <!-- <i class="flaticon-gardening-nature-32 font-48 text-theme-colored"></i>  -->
-                     <img src="./icons/strategy.png" alt="">
+                     <img src="{{asset('icons') }}/strategy.png" alt="">
                     </a>
                     <h5 class="Personal trainer text-uppercase mt-0"><a href="#"><strong>Strategy</strong></a></h5>
                     <!-- <p>The state would facilitate to produce highly skilled manpower in Biotechnology according to industry requirement...</p> -->
@@ -645,7 +645,7 @@
               <div class="icon-box bg-white-transparent-4 p-20 border-1px">
                 <a class="icon bg-theme-colored icon-circled icon-border-effect effect-circled pull-right  sm-pull-none flip text-white mt-15" href="#">
                   <!-- <i class="flaticon-gardening-tool"></i> -->
-                  <img src="./icons/planting.png" alt="" style="padding: 15px;">
+                  <img src="{{asset('icons') }}/planting.png" alt="" style="padding: 15px;">
                 </a>
                 <h4 class="icon-box-title"><a href="#">Agriculture Biotechnology</a></h4>
                 <p>The key activities in agriculture biotechnology would include (a) Development
@@ -656,7 +656,7 @@
               <div class="icon-box bg-white-transparent-4 p-20 border-1px">
                 <a class="icon bg-theme-colored icon-circled icon-border-effect effect-circled pull-right  sm-pull-none flip text-white mt-15" href="#">
                   <!-- <i class="flaticon-gardening-tool-3"></i> -->
-                  <img src="./icons/livestock.png" alt="" style="padding: 15px;">
+                  <img src="{{asset('icons') }}/livestock.png" alt="" style="padding: 15px;">
                 </a>
                 <h4 class="icon-box-title"><a href="#">Animal Biotechnology</a></h4>
                 <p>The key activities in animal biotechnology would include (a) increasing the production,
@@ -667,7 +667,7 @@
               <div class="icon-box bg-white-transparent-4 p-20 border-1px">
                 <a class="icon bg-theme-colored icon-circled icon-border-effect effect-circled pull-right  sm-pull-none flip text-white mt-15" href="#">
                   <!-- <i class="flaticon-gardening-scissors-1"></i> -->
-                  <img src="./icons/pharmaceutical.png" alt="" style="padding: 15px;">
+                  <img src="{{asset('icons') }}/pharmaceutical.png" alt="" style="padding: 15px;">
                 </a>
                 <h4 class="icon-box-title"><a href="#">Pharmaceutical Biotechnology</a></h4>
                 <p>The key activities in pharmaceutical biotechnology would include (a) design
@@ -678,7 +678,7 @@
               <div class="icon-box bg-white-transparent-4 p-20 border-1px">
                 <a class="icon bg-theme-colored icon-circled icon-border-effect effect-circled pull-right  sm-pull-none flip text-white mt-15" href="#">
                   <!-- <i class="flaticon-gardening-nature-28"></i> -->
-                  <img src="./icons/microbial-culture.png" alt="" style="padding: 15px;">
+                  <img src="{{asset('icons') }}/microbial-culture.png" alt="" style="padding: 15px;">
                 </a>
                 <h4 class="icon-box-title"><a href="#">Microbial Biotechnology</a></h4>
                 <p>The key activities in microbial biotechnology would include (a) Characterization,

@@ -699,6 +699,7 @@
               <h2 class="mb-30 mt-0 line-height-1">Importance of <span class="text-theme-colored">Biotechnology</span></h2>
               <p class="mb-20">Biotechnology is the most contemporary science and technology of research and development that has made significant progress. In recent years, a massive translation of biotechnology into economic benefits has been realized due to its application in the development of products, processes and services in agriculture, animal husbandry and fisheries, healthcare, energy, environment, and several other sectors...</p>
               <div class="row">
+                <div class="imp-biotechnology-div" style="display: flex;flex-wrap: wrap;justify-content: center;">
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="icon-box border-1px p-15 mb-30">
                     <a class="icon pull-left sm-pull-none flip" href="#">
@@ -760,6 +761,7 @@
                         <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                     </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -1230,12 +1232,6 @@
                 </div>
                 <div class="entry-content p-20 pr-10">
                   <div class="entry-meta media mt-0 no-bg no-border">
-                    <!-- <div class="entry-date media-left flip text-center">
-                      <ul>
-                        <li class="font-16 font-weight-600 border-bottom bg-white-f1 pt-5 pr-15 pb-5 pl-15">28</li>
-                        <li class="font-12 text-white text-uppercase bg-theme-colored pt-5 pr-15 pb-5 pl-15">Feb</li>
-                      </ul>
-                    </div> -->
                     <div class="media-body pl-0">
                       <div class="event-content pull-left flip">
                         <h4 class="entry-title text-white text-capitalize m-0"><a href="key-state-initiative.html">Developing Biotechnology Infrastructure</a></h4>

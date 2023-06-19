@@ -867,6 +867,7 @@
           </div>
         </div>
       </div>
+      <button id="test">okkk</button>
     </section>
   </div>
   <!-- end main-content -->
@@ -902,7 +903,7 @@
         console.log("ready!");
     });
 
-    $('#increasetext').click(function() {
+    $('#test').click(function() {
         alert("ok");
     });
 </script>

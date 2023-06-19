@@ -103,7 +103,7 @@
                     <li><a href="#"><span>2.1.4</span> Registration of biotechnology industries or units</a></li>
                 </ul> -->
                                 </li>
-                                <li><a href="#"><span>2.3</span> Strategy</a>
+                                <li><a href="#">Strategy</a>
                                     <ul class="dropdown">
                                         <li><a href="#"><span>2.3.1</span> Academic-Industry linkage</a>
                                         </li>

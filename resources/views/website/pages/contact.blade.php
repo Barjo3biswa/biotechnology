@@ -215,12 +215,3 @@
 
   <!-- Footer -->
   @include('website.layout.footer')
-  <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a> </div>
-<!-- end wrapper -->
-
-<!-- Footer Scripts -->
-<!-- JS | Custom script for all pages -->
-<script src="js/custom.js"></script>
-
-</body>
-</html>

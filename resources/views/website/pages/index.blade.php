@@ -953,36 +953,35 @@
 // }
 
 // Increase/descrease font size
-document.querySelector('#increasetext').click(function() {
-    consol.log("dfhjdf");
-  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    var currentFontSize = parseInt(document.querySelector(this).css('font-size'));
+$('#increasetext').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
     var newFontSize = currentFontSize + 2;
-    document.querySelector(this).css('font-size', newFontSize + 'px');
+    $(this).css('font-size', newFontSize + 'px');
   });
 });
 
-document.querySelector('#resettext').click(function() {
-  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    document.querySelector(this).css('font-size', '');
-    document.querySelector(this).removeStyle('font-size');
+$('#resettext').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    $(this).css('font-size', '');
+    $(this).removeStyle('font-size');
   });
 });
 
-document.querySelector('#decreasetext').click(function() {
+$('#decreasetext').click(function() {
     alert("sjdfhks");
-  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    var currentFontSize = parseInt(document.querySelector(this).css('font-size'));
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
     var newFontSize = currentFontSize - 2;
-    document.querySelector(this).css('font-size', newFontSize + 'px');
+    $(this).css('font-size', newFontSize + 'px');
   });
 });
 
 // Custom method to remove inline style
-document.querySelector.fn.removeStyle = function(style) {
+$.fn.removeStyle = function(style) {
   var search = new RegExp(style + '[^;]+;?', 'g');
   return this.each(function() {
-    document.querySelector(this).attr('style', function(i, style) {
+    $(this).attr('style', function(i, style) {
       return style.replace(search, '');
     });
   });

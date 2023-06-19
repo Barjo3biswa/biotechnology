@@ -104,15 +104,15 @@ class AnnexureI extends Component
         $this->application_id = $id;
         $this->director_count=1;
         // $this->dsir_reg_status = $application->;
-        $this->unit_name = $application->BasicInformation->unit_name;
-        $this->phone_no = $application->BasicInformation->phone_no;
-        $this->telephone_no = $application->BasicInformation->telephone_no;
-        $this->email = $application->BasicInformation->email;
-        $this->entity_type = $application->BasicInformation->entity_type;
-        $this->pan_no = $application->BasicInformation->pan_no;
-        $this->gst_no = $application->BasicInformation->gst_no;
-        $this->dsir_reg_status = $application->BasicInformation->dsr_csr_status;
-        $this->dsr_csr_reg_no = $application->BasicInformation->dsr_csr_reg_no;
+        $this->unit_name = $application->BasicInformation->unit_name??Null;
+        $this->phone_no = $application->BasicInformation->phone_no??Null;
+        $this->telephone_no = $application->BasicInformation->telephone_no??Null;
+        $this->email = $application->BasicInformation->email??Null;
+        $this->entity_type = $application->BasicInformation->entity_type??Null;
+        $this->pan_no = $application->BasicInformation->pan_no??Null;
+        $this->gst_no = $application->BasicInformation->gst_no??Null;
+        $this->dsir_reg_status = $application->BasicInformation->dsr_csr_status??Null;
+        $this->dsr_csr_reg_no = $application->BasicInformation->dsr_csr_reg_no??Null;
 
         // $this->dir_name = $application->;
         // $this->dir_pan = $application->;
@@ -120,31 +120,31 @@ class AnnexureI extends Component
         // $this->dir_cont = $application->;
         // $this->dir_add = $application->;
 
-        $this->location = $application->DetailsBTPark->location;
-        $this->area_of_land = $application->DetailsBTPark->area_of_land;
-        $this->proff_of_land = $application->DetailsBTPark->proff_of_land;
-        $this->description = $application->DetailsBTPark->description;
-        $this->project_report = $application->DetailsBTPark->project_report;
-        $this->noc_certificate = $application->DetailsBTPark->noc_certificate;
+        $this->location = $application->DetailsBTPark->location??Null;
+        $this->area_of_land = $application->DetailsBTPark->area_of_land??Null;
+        $this->proff_of_land = $application->DetailsBTPark->proff_of_land??Null;
+        $this->description = $application->DetailsBTPark->description??Null;
+        $this->project_report = $application->DetailsBTPark->project_report??Null;
+        $this->noc_certificate = $application->DetailsBTPark->noc_certificate??Null;
 
-        // $this->component = $application->ProjectCoast->component_name;
-        // $this->coast = $application->ProjectCoast->coast;
-        // $this->project_coast=$application->ProjectCoast;
-        // dd($this->project_coast);
+        // $this->component = $application->ProjectCoast->component_name??Null;
+        // $this->coast = $application->ProjectCoast->coast??Null;
+        // $this->project_coast=$application->ProjectCoast??Null;
+        // dd($this->project_coast);??Null
 
-        $this->tot_coast = $application->MeansOfFinancing->tot_coast;
-        $this->promoters_contribution = $application->MeansOfFinancing->promoters_contribution;
-        $this->enterprise_contribution = $application->MeansOfFinancing->enterprise_contribution;
-        $this->expect_from_ass_gov = $application->MeansOfFinancing->expect_from_ass_gov;
-        $this->expect_from_oth_gov = $application->MeansOfFinancing->expect_from_oth_gov;
-        $this->loan_selection_letter = $application->MeansOfFinancing->loan_selection_letter;
-        $this->total = $application->MeansOfFinancing->total;
+        $this->tot_coast = $application->MeansOfFinancing->tot_coast??Null;
+        $this->promoters_contribution = $application->MeansOfFinancing->promoters_contribution??Null;
+        $this->enterprise_contribution = $application->MeansOfFinancing->enterprise_contribution??Null;
+        $this->expect_from_ass_gov = $application->MeansOfFinancing->expect_from_ass_gov??Null;
+        $this->expect_from_oth_gov = $application->MeansOfFinancing->expect_from_oth_gov??Null;
+        $this->loan_selection_letter = $application->MeansOfFinancing->loan_selection_letter??Null;
+        $this->total = $application->MeansOfFinancing->total??Null;
 
-        $this->ac_hol_name = $application->BankACDetails->ac_hol_name;
-        $this->bank_name = $application->BankACDetails->bank_name;
-        $this->account_number = $application->BankACDetails->account_number;
-        $this->ifsc_code = $application->BankACDetails->ifsc_code;
-        $this->rtgs_dts = $application->BankACDetails->rtgs_dts;
+        $this->ac_hol_name = $application->BankACDetails->ac_hol_name??Null;
+        $this->bank_name = $application->BankACDetails->bank_name??Null;
+        $this->account_number = $application->BankACDetails->account_number??Null;
+        $this->ifsc_code = $application->BankACDetails->ifsc_code??Null;
+        $this->rtgs_dts = $application->BankACDetails->rtgs_dts??Null;
 
         $this->app_list=0;
     }

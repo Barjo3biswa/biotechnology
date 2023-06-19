@@ -57,6 +57,7 @@ class AnnexureI extends Component
     }
 
     public function applicationStep($status){
+        dd("ok");
         if($status=='apply'){
             $this->app_list=0;
         }else{

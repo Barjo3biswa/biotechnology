@@ -55,6 +55,7 @@ return [
     */
 
     'asset_url' => 'http://68.183.90.136/biotechnology/public/',
+    // 'asset_url' => 'http://68.183.90.136/biotechnology/public',
 
     /*
     |--------------------------------------------------------------------------

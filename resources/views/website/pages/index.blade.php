@@ -716,7 +716,9 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="icon-box border-1px p-15 mb-30">
                     <a class="icon pull-left sm-pull-none flip" href="#">
-                      <i class="flaticon-gardening-plant text-theme-colored"></i>
+                      {{-- <i class="flaticon-gardening-plant text-theme-colored"></i> --}}
+                      <img src="{{asset('icons-test') }}/improve.png" alt="" width="40">
+
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">The Biotechnology Potential of Assam</h5>
@@ -742,7 +744,9 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="icon-box border-1px p-15 mb-30">
                     <a class="icon pull-left sm-pull-none flip" href="#">
-                      <i class="flaticon-gardening-nature-21 text-theme-colored"></i>
+                      {{-- <i class="flaticon-gardening-nature-21 text-theme-colored"></i> --}}
+                      <img src="{{asset('icons-test') }}/solution.png" alt="" width="40">
+
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Biotechnology Initiative in Assam</h5>

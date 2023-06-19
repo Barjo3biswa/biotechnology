@@ -1,4 +1,4 @@
-<section>
+<section class="pt-30">
 @if($app_list==1)
 <div class="container pb-40 pt-30">
     <div class="section-content">

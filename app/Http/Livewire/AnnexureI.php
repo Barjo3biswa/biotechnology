@@ -192,17 +192,19 @@ class AnnexureI extends Component
                     'pan_coppyii'=> $this->storeDocs($this->pan_coppyii,'pan_coppyii'),
                     'registration_coppy'=> $this->storeDocs($this->registration_coppy,'registration_coppy'),
                 ]);
-
-                foreach($this->director_details as $details){
-                    DirectorsPromoter::create([
-                        'application_id' => $this->application_id,
-                        'name' => $details['dir_name'],
-                        'din_pan_no' => $details['din_pan_no'],
-                        'email' => $details['dir_email'],
-                        'contact_no' => $details['dir_cont'],
-                        'address' => $details['dir_add'],
-                    ]);
+                if(count($this->director_details)>0){
+                    foreach($this->director_details as $details){
+                        DirectorsPromoter::create([
+                            'application_id' => $this->application_id,
+                            'name' => $details['dir_name'],
+                            'din_pan_no' => $details['din_pan_no'],
+                            'email' => $details['dir_email'],
+                            'contact_no' => $details['dir_cont'],
+                            'address' => $details['dir_add'],
+                        ]);
+                    }
                 }
+
             DB::commit();
             $this->error=0;$this->success=1;
             $this->success_msg="Successfully Inserted Basic Information.";

@@ -28,7 +28,7 @@
             <div class="col-sm-6">
                 <label class="col-form-label">Type of the Entity:</label>
                 <select class="form-control" wire:model="entity_type">
-                    <option value="" disabled selected>Select entity type</option>
+                    <option value="">Select entity type</option>
                     @foreach ($entity_types as $type)
                         <option value="{{ $type->id }}">{{ $type->name }}</option>
                     @endforeach

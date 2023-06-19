@@ -189,7 +189,7 @@ class AnnexureI extends Component
                     'dsr_csr_status'=> $this->dsir_reg_status,
                     'dsr_csr_reg_no'=> $this->dsr_csr_reg_no,
                     'certificate_of_incorporation'=> $this->storeDocs($this->certificate_of_incorporation,'certificate_of_incorporation'),
-                    'pan_coppyii'=> $this->storeDocs($this->pan_coppyii,'pan_coppyii'),
+                    'pan_coppy'=> $this->storeDocs($this->pan_coppyii,'pan_coppyii'),
                     'registration_coppy'=> $this->storeDocs($this->registration_coppy,'registration_coppy'),
                 ]);
                 if($this->director_details){

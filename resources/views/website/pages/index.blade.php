@@ -697,7 +697,7 @@
           <div class="row">
             <div class="col-md-12">
               <h2 class="mb-30 mt-0 line-height-1">Importance of <span class="text-theme-colored">Biotechnology</span></h2>
-              <p class="mb-20">Biotechnology is the most contemporary science and technology of research and development that has made significant progress. In recent years, a massive translation of biotechnology into economic benefits has been realized due to its application in the development of products, processes and services in agriculture, animal husbandry and fisheries, healthcare, energy, environment, and several other sectors.</p>
+              <p class="mb-20">Biotechnology is the most contemporary science and technology of research and development that has made significant progress. In recent years, a massive translation of biotechnology into economic benefits has been realized due to its application in the development of products, processes and services in agriculture, animal husbandry and fisheries, healthcare, energy, environment, and several other sectors...</p>
               <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-4">
                   <div class="icon-box border-1px p-15 mb-30">
@@ -707,7 +707,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">A Tool for Socio-Economic Development</h5>
-                      <p>.</p>
+                      <p>Biotechnology signifies any technique “which uses living organisms or parts thereof to make or modify products... </p>
                     </div>
                   </div>
                 </div>
@@ -718,7 +718,8 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">The Biotechnology Potential of Assam</h5>
-                      <p style="text-align: left;">.</p>
+                      <p style="text-align: left;">Assam is one of the biodiversity hot spot regions and is very rich in plant, animal and microbial resources. It is considered... </p>
+
                     </div>
                   </div>
                 </div>
@@ -730,7 +731,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Status of Biotechnology in Assam</h5>
-                      <p style="text-align: left;">.</p>
+                      <p style="text-align: left;">The biotechnology industrial development in the state is yet to take place. However, initial entrepreneurial activity is...</p>
                     </div>
                   </div>
                 </div>
@@ -741,7 +742,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Biotechnology Initiative in Assam</h5>
-                      <p style="text-align: left;">.</p>
+                      <p style="text-align: left;">Government of Assam has been providing financial support to the state universities for biotechnology infrastructure...</p>
                     </div>
                   </div>
                 </div>
@@ -751,19 +752,8 @@
                         <i class="flaticon-gardening-nature-21 text-theme-colored"></i>
                       </a>
                       <div class="ml-70 ml-sm-0">
-                        <h5 class="icon-box-title mt-15 mb-5">Proper Take Care</h5>
-                        <p style="text-align: left;">.</p>
-                      </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
-                    <div class="icon-box border-1px p-15 mb-30">
-                      <a class="icon pull-left sm-pull-none flip" href="#">
-                        <i class="flaticon-gardening-nature-21 text-theme-colored"></i>
-                      </a>
-                      <div class="ml-70 ml-sm-0">
-                        <h5 class="icon-box-title mt-15 mb-5">Proper Take Care</h5>
-                        <p style="text-align: left;">.</p>
+                        <h5 class="icon-box-title mt-15 mb-5">Key Drivers & Specific Features For Biotechnology Policy Formulation</h5>
+                        <p style="text-align: left;">It is apparent that biotechnology has interface with various sectors including agriculture, horticulture, animal husbandry...</p>
                       </div>
                     </div>
                 </div>

@@ -162,7 +162,7 @@
                         <li class="{{Request::is('form')||Request::is('exe-committee')? 'active' : ''}}">
                             <a href="#">Apply Here</a>
                             <ul class="dropdown">
-                                <li><a href="{{route('form')}}" target="_blank">APPLICATION FORM FOR AVAILING ASSISTANCE FOR START UPS</a></li>
+                                <li><a href="{{route('form')}}" target="_blank">Application for Availing Assistance for START UPS</a></li>
                                 {{-- <li><a href="#">Annexure II</a></li> --}}
                             </ul>
                         </li>

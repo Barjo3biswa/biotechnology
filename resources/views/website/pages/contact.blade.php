@@ -109,7 +109,7 @@
               <div class="contact-info text-center pt-40 pb-40  border-1px">
                 <i class="fa fa-phone font-36 mb-10 text-theme-colored"></i>
                 <h4>Call Us</h4>
-                <h6>Phone: +91-123456789</h6>
+                <h6>Phone: 9085060009</h6>
               </div>
             </div>
             <div class="col-sm-12 col-md-4">
@@ -124,7 +124,7 @@
               <div class="contact-info text-center pt-40 pb-40 border-1px">
                 <i class="fa fa-envelope font-36 mb-10 text-theme-colored"></i>
                 <h4>Email</h4>
-                <h6>example@gmail.com</h6>
+                <h6>assambiotechnologycouncil@gmail.com</h6>
               </div>
             </div>
           </div>

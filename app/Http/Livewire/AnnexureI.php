@@ -32,7 +32,7 @@ class AnnexureI extends Component
     public $dsir_reg_status,$director_count=1,$director_array=[];
     public $unit_name, $phone_no, $telephone_no, $email, $entity_type, $pan_no, $gst_no, $dsr_csr_status, $dsr_csr_reg_no;
     public $director_details;
-    public $certificate_of_incorporation, $pan_coppy, $registration_coppy;
+    public $certificate_of_incorporation, $pan_coppyii, $registration_coppy;
 
     // BT PARK / R&D INSTITUTE / FINISHING SCHOOL
     public $location, $area_of_land, $proff_of_land, $description, $project_report, $noc_certificate;
@@ -188,9 +188,9 @@ class AnnexureI extends Component
                     'gst_no'=> $this->gst_no,
                     'dsr_csr_status'=> $this->dsir_reg_status,
                     'dsr_csr_reg_no'=> $this->dsr_csr_reg_no,
-                    'certificate_of_incorporation'=> $this->storeDocs($this->proff_of_land,'certificate_of_incorporation'),
-                    'pan_coppy'=> $this->storeDocs($this->proff_of_land,'pan_coppy'),
-                    'registration_coppy'=> $this->storeDocs($this->proff_of_land,'registration_coppy'),
+                    'certificate_of_incorporation'=> $this->storeDocs($this->certificate_of_incorporation,'certificate_of_incorporation'),
+                    'pan_coppyii'=> $this->storeDocs($this->pan_coppyii,'pan_coppyii'),
+                    'registration_coppy'=> $this->storeDocs($this->registration_coppy,'registration_coppy'),
                 ]);
 
                 foreach($this->director_details as $details){

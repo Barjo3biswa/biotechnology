@@ -1,5 +1,5 @@
 <div class="form-container">
-    <form wire:submit.prevent="saveBasicInfo">
+    <form wire:submit.prevent="saveBasicInfo" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-sm-12">
                 <label class="col-form-label">Name of the Unit:</label>
@@ -78,7 +78,7 @@
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label">PAN NUMBER (PLEASE PROVIDE CERTIFIED COPY):</label>
-                <input class="form-control" type="file" wire:model="pan_coppy">
+                <input class="form-control" type="file" wire:model="pan_coppyii">
                 @error('gst_no') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
         </div>

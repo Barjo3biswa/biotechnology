@@ -756,7 +756,7 @@
                       </a>
                       <div class="ml-70 ml-sm-0">
                         <h5 class="icon-box-title mt-15 mb-5">Key Drivers & Specific Features For Biotechnology Policy Formulation</h5>
-                        <p style="text-align: left;">It is apparent that biotechnology has interface with various sectors including agriculture, horticulture, animal husbandry...</p>
+                        <p style="text-align: left;">It is apparent that biotechnology has interface with various sectors including agriculture, horticulture...</p>
                         <a class="btn btn-gray btn-sm" href="#">Read more</a>
                     </div>
                     </div>

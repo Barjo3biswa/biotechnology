@@ -44,10 +44,10 @@
 <link  href="js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css"/>
 
 <!-- external javascripts -->
-<script src="{{asset('js') }}/jquery-2.2.0.min.js"></script>
-<script src="{{asset('js') }}/jquery-ui.min.js"></script>
-<script src="{{asset('js') }}/bootstrap.min.js"></script>
-<script src="{{asset('js') }}/jquery-plugin-collection.js"></script>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery-plugin-collection.js"></script>
 
 <!-- Revolution Slider 5.x SCRIPTS -->
 <script src="js/revolution-slider/js/jquery.themepunch.tools.min.js"></script>
@@ -953,35 +953,35 @@
 // }
 
 // Increase/descrease font size
-$('#increasetext').click(function() {
-  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    var currentFontSize = parseInt($(this).css('font-size'));
+document.querySelector('#increasetext').click(function() {
+  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt(document.querySelector(this).css('font-size'));
     var newFontSize = currentFontSize + 2;
-    $(this).css('font-size', newFontSize + 'px');
+    document.querySelector(this).css('font-size', newFontSize + 'px');
   });
 });
 
-$('#resettext').click(function() {
-  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    $(this).css('font-size', '');
-    $(this).removeStyle('font-size');
+document.querySelector('#resettext').click(function() {
+  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    document.querySelector(this).css('font-size', '');
+    document.querySelector(this).removeStyle('font-size');
   });
 });
 
-$('#decreasetext').click(function() {
+document.querySelector('#decreasetext').click(function() {
     alert("sjdfhks");
-  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
-    var currentFontSize = parseInt($(this).css('font-size'));
+  document.querySelector('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt(document.querySelector(this).css('font-size'));
     var newFontSize = currentFontSize - 2;
-    $(this).css('font-size', newFontSize + 'px');
+    document.querySelector(this).css('font-size', newFontSize + 'px');
   });
 });
 
 // Custom method to remove inline style
-$.fn.removeStyle = function(style) {
+document.querySelector.fn.removeStyle = function(style) {
   var search = new RegExp(style + '[^;]+;?', 'g');
   return this.each(function() {
-    $(this).attr('style', function(i, style) {
+    document.querySelector(this).attr('style', function(i, style) {
       return style.replace(search, '');
     });
   });

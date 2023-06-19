@@ -1324,9 +1324,8 @@
             <h3 class="mt-0" style="color: #fff;">The Assam Bitechnology Council</h3>
             <p>To promote Assam as an attractive and competitive destination for investments in the field of Biotechnology and allied areas.</p>
             <ul class="list-inline mt-5">
-              <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-theme-colored mr-5"></i> <a class="text-gray" href="#">123-456-789</a> </li>
-              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored mr-5"></i> <a class="text-gray" href="#">contact@yourdomain.com</a> </li>
-              <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored mr-5"></i> <a class="text-gray" href="#">www.yourdomain.com</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-theme-colored mr-5"></i> <a class="text-gray" href="mailto:assambiotechnologycouncil@gmail.com">assambiotechnologycouncil@gmail.com</a> </li>
+              <li class="m-0 pl-10 pr-10"> <i class="fa fa-globe text-theme-colored mr-5"></i> <a class="text-gray" href="https://assambiotechcouncil.com/">https://assambiotechcouncil.com/</a> </li>
             </ul>
           </div>
         </div>

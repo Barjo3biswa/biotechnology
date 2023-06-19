@@ -50,7 +50,9 @@ Route::get('/Preamble', function () {
     return view('website.pages.preamble');
 })->name('Preamble');
 
-
+Route::get('/screen-reader', function () {
+    return view('website.pages.screen-reader');
+})->name('screen-reader');
 
 Auth::routes();
 

@@ -24,7 +24,7 @@
           <div class="col-xs-4 col-sm-4 col-md-4">
               <div class="widget no-border m-0">
                 <div class="mt-0 mb-0 flip sm-text-left gigw">
-                  <div class="font-12 text-black-333 mb-0 font-weight-500"><a href="screen-reader.html"><a>Screen Reader Access</a></div>
+                  <div class="font-12 text-black-333 mb-0 font-weight-500"><a href="{{rout('screen-reader')}}"><a>Screen Reader Access</a></div>
                 </div>
               </div>
           </div>

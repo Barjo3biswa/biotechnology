@@ -56,6 +56,9 @@ class AnnexureI extends Component
         return view('livewire.annexure-i');
     }
 
+    public function testThis(){
+        dd("ok");
+    }
     public function applicationStep($status){
         dd("ok");
         if($status=='apply'){

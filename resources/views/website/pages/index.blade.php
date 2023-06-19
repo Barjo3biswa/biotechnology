@@ -901,6 +901,10 @@
     $( document ).ready(function() {
         console.log("ready!");
     });
+
+    $('#increasetext').click(function() {
+        alert("ok");
+    });
 </script>
   <script>
     // function increaseFont() {

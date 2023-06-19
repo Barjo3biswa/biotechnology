@@ -20,6 +20,7 @@
                 </div>
               </div>
           </div>
+
           <div class="col-xs-4 col-sm-4 col-md-4">
               <div class="widget no-border m-0">
                 <div class="mt-0 mb-0 flip sm-text-left gigw">

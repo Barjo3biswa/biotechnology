@@ -87,11 +87,17 @@
                     <div class="widget no-border m-0 mobile-contact-info">
                     <div class="mt-10 mb-10 flip sm-text-center gigw">
                         <!-- <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-phone-square text-theme-colored font-18"></i> +91-123456789</div> -->
-                        <ul class="styled-icons icon-dark icon-circled icon-sm">
+                        {{-- <ul class="styled-icons icon-dark icon-circled icon-sm">
                           <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                           <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                           <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
+                        </ul> --}}
+                        {{-- <div class="widget no-border m-0 mobile-contact-info">
+                      <div class="mt-10 mb-10 flip sm-text-center gigw"> --}}
+                          <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-map-marker text-theme-colored font-18"></i> Our Location</div>
+                          {{-- <a href="#" class="font-12 text-gray">Amingaon, Guwahati</a> --}}
+                      {{-- </div>
+                    </div> --}}
                         <a href="#" class="font-12 text-gray">Amingaon, Guwahati</a>
                         {{-- <a href="#" class="font-12 text-gray social">Our Social Media Handles</a> --}}
                     </div>

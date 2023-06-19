@@ -73,19 +73,19 @@
         <div class="form-group row">
             <div class="col-sm-6">
                 <label class="col-form-label">CERTIFICATE OF INCORPORATION (PLEASE PROVIDE CERTIFIED COPY):</label>
-                <input class="form-control" type="text" wire:model="certificate_of_incorporation">
+                <input class="form-control" type="file" wire:model="certificate_of_incorporation">
                 @error('pan_no') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
             <div class="col-sm-6">
                 <label class="col-form-label">PAN NUMBER (PLEASE PROVIDE CERTIFIED COPY):</label>
-                <input class="form-control" type="text" wire:model="pan_coppy">
+                <input class="form-control" type="file" wire:model="pan_coppy">
                 @error('gst_no') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-6">
                 <label class="col-form-label">GST REGISTRATION NO. (PLEASE PROVIDE REGISTRATION COPY) :</label>
-                <input class="form-control" type="text" wire:model="registration_coppy">
+                <input class="form-control" type="file" wire:model="registration_coppy">
                 @error('pan_no') <span class="error-msg">{{ $message }}</span> @enderror
             </div>
         </div>

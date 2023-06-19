@@ -707,7 +707,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">A Tool for Socio-Economic Development</h5>
-                      <p>Lorem ipsum dolor sit amet</p>
+                      {{-- <p>Lorem ipsum dolor sit amet</p> --}}
                     </div>
                   </div>
                 </div>
@@ -718,7 +718,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">The Biotechnology Potential of Assam</h5>
-                      <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p>
+                      {{-- <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p> --}}
                     </div>
                   </div>
                 </div>
@@ -730,7 +730,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Status of Biotechnology in Assam</h5>
-                      <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p>
+                      {{-- <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p> --}}
                     </div>
                   </div>
                 </div>
@@ -741,7 +741,7 @@
                     </a>
                     <div class="ml-70 ml-sm-0">
                       <h5 class="icon-box-title mt-15 mb-5">Biotechnology Initiative in Assam</h5>
-                      <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p>
+                      {{-- <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p> --}}
                     </div>
                   </div>
                 </div>
@@ -752,7 +752,7 @@
                       </a>
                       <div class="ml-70 ml-sm-0">
                         <h5 class="icon-box-title mt-15 mb-5">Proper Take Care</h5>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p>
+                        {{-- <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p> --}}
                       </div>
                     </div>
                 </div>
@@ -763,7 +763,7 @@
                       </a>
                       <div class="ml-70 ml-sm-0">
                         <h5 class="icon-box-title mt-15 mb-5">Proper Take Care</h5>
-                        <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p>
+                        {{-- <p style="text-align: left;">Lorem ipsum dolor sit amet, consectetur.</p> --}}
                       </div>
                     </div>
                 </div>

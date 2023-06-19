@@ -151,6 +151,13 @@
                             </ul>
                         </li>
                         <li class="{{Request::is('contact')? 'active' : ''}}"><a href="{{route('contact')}}">Contact Us</a></li>
+                        <li class="{{Request::is('apex-committee')||Request::is('exe-committee')? 'active' : ''}}">
+                            <a href="#">Apply Here</a>
+                            <ul class="dropdown">
+                                <li><a href="{{route('form')}}">Annexure I</a></li>
+                                <li><a href="#">Annexure II</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

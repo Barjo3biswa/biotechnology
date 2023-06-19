@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
-<!-- Mirrored from kodesolution.com/html/2016/landscaping-html/demo/page-about1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2023 07:08:34 GMT -->
+
 <head>
 
 <!-- Meta Tags -->
@@ -461,5 +461,5 @@
 
 </body>
 
-<!-- Mirrored from kodesolution.com/html/2016/landscaping-html/demo/page-about1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 27 May 2023 07:08:35 GMT -->
+
 </html>

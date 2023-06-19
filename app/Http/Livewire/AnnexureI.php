@@ -50,6 +50,7 @@ class AnnexureI extends Component
 
     public function render()
     {
+        dd("ok");
         $this->entity_types=EntityType::get();
         $this->application_list=Application::where('user_id',Auth::user()->id)->get();
         $this->assistance_sought = AssistanceSoughtMaster::get();

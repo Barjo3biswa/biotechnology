@@ -1344,84 +1344,19 @@
         <div class="col-sm-6 col-md-3">
           <div class="widget dark">
             <h5 class="widget-title line-bottom">Facebook Feed</h5>
-            <!-- <div class="twitter-feed list-border clearfix" data-username="Envato" data-count="2"></div> -->
           </div>
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="widget dark">
             <h5 class="widget-title line-bottom">Twitter Feed</h5>
-            <!-- <div class="twitter-feed list-border clearfix" data-username="Envato" data-count="2"></div> -->
           </div>
         </div>
-        <!-- <div class="col-sm-6 col-md-3">
-          <div class="widget dark">
-            <h5 class="widget-title line-bottom">Latest News</h5>
-            <div class="latest-posts">
-              <article class="post media-post clearfix pb-0 mb-10">
-                <a href="#" class="post-thumb"><img alt="" src="http://placehold.it/80x55"></a>
-                <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Sustainable Construction</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                </div>
-              </article>
-              <article class="post media-post clearfix pb-0 mb-10">
-                <a href="#" class="post-thumb"><img alt="" src="http://placehold.it/80x55"></a>
-                <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Industrial Coatings</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                </div>
-              </article>
-              <article class="post media-post clearfix pb-0 mb-10">
-                <a href="#" class="post-thumb"><img alt="" src="http://placehold.it/80x55"></a>
-                <div class="post-right">
-                  <h5 class="post-title mt-0 mb-5"><a href="#">Storefront Installations</a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div> -->
+
       </div>
       <div class="row mt-30">
-        <!-- <div class="col-md-5">
-          <div class="widget dark">
-            <h5 class="widget-title mb-10">Subscribe Us</h5>
-            <form id="mailchimp-subscription-form-footer" class="newsletter-form">
-              <div class="input-group">
-                <input type="email" value="" name="EMAIL" placeholder="Your Email" class="form-control input-lg font-16" data-height="45px" id="mce-EMAIL-footer" style="height: 45px;">
-                <span class="input-group-btn">
-                  <button data-height="45px" class="btn btn-colored btn-theme-colored btn-xs m-0 font-14" type="submit">Subscribe</button>
-                </span>
-              </div>
-            </form>
-            <script type="text/javascript">
-              $('#mailchimp-subscription-form-footer').ajaxChimp({
-                  callback: mailChimpCallBack,
-                  url: ''
-              });
 
-              function mailChimpCallBack(resp) {
-                  var $mailchimpform = $('#mailchimp-subscription-form-footer'),
-                      $response = '';
-                  $mailchimpform.children(".alert").remove();
-                  if (resp.result === 'success') {
-                      $response = '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
-                  } else if (resp.result === 'error') {
-                      $response = '<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + resp.msg + '</div>';
-                  }
-                  $mailchimpform.prepend($response);
-              }
-            </script>
-          </div>
-        </div> -->
         <div class="col-md-6">
-          <!-- <div class="widget dark">
-            <h5 class="widget-title mb-10">Call Us Now</h5>
-            <div class="text-gray">
-              +61 3 1234 5678 <br>
-              +12 3 1234 5678
-            </div>
-          </div> -->
+
         </div>
         <div class="col-md-6">
           <div class="widget dark" style="float: right;">

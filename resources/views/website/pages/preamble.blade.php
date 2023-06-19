@@ -193,8 +193,3 @@
 <!-- Footer -->
 @include('website.layout.footer')
 
-<!-- Footer Scripts -->
-<script src="js/custom.js"></script>
-
-</body>
-</html>

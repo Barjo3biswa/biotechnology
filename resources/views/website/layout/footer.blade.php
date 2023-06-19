@@ -79,3 +79,164 @@
       </div>
     </div>
   </footer>
+  <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
+</div>
+<!-- end wrapper -->
+
+<!-- Footer Scripts -->
+<!-- JS | Custom script for all pages -->
+<script src="js/custom.js"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS
+      (Load Extensions only on Local File Systems !
+       The following part can be removed on Server for On Demand Loading) -->
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
+{{-- <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script> --}}
+<script>
+    $( document ).ready(function() {
+        console.log("ready!");
+    });
+
+    $('#test').click(function() {
+        alert("ok");
+    });
+</script>
+  <script>
+    // function increaseFont() {
+    //   var body = document.getElementsByTagName("body")[0];
+    //   var fontSize = parseInt(window.getComputedStyle(body).fontSize);
+    //   fontSize += 2; // Increase font size by 2 pixels
+    //   body.style.fontSize = fontSize + "px";
+    // }
+
+    // function decreaseFont() {
+    //   var body = document.getElementsByTagName("body")[0];
+    //   var fontSize = parseInt(window.getComputedStyle(body).fontSize);
+    //   fontSize -= 2; // Decrease font size by 2 pixels
+    //   body.style.fontSize = fontSize + "px";
+    // }
+
+    // function resetFont() {
+    //   var body = document.getElementsByTagName("body")[0];
+    //   body.style.fontSize = "14px"; // Reset font size to default
+    // }
+
+// let defaultFontSizes = {};
+
+// window.onload = function() {
+//   let elements = document.querySelectorAll("h1,h2,h3,h4,h5,h6, span, p, a, strong,i,li");
+//   elements.forEach(element => {
+//     let tagName = element.tagName;
+//     let fontSize = parseInt(window.getComputedStyle(element).fontSize);
+//     defaultFontSizes[tagName] = fontSize;
+//   });
+// };
+
+// function increaseFont() {
+//   changeFontSizes(2);
+// }
+
+// function decreaseFont() {
+//   changeFontSizes(-2);
+// }
+
+// function resetFont() {
+//   window.location.reload();
+// }
+
+// function changeFontSizes(increment) {
+//   let elements = document.querySelectorAll("h1,h2,h3,h4,h5,h6, span, p, a, strong,i,li");
+//   elements.forEach(element => {
+//     let tagName = element.tagName;
+//     let defaultFontSize = defaultFontSizes[tagName];
+//     let newFontSize = defaultFontSize + increment;
+
+//     if (increment === 0) {
+//       element.style.fontSize = defaultFontSize + "px";
+//     } else {
+//       element.style.fontSize = newFontSize + "px";
+//     }
+//   });
+// }
+
+// Increase/descrease font size
+$('#increasetext').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize + 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
+$('#resettext').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    $(this).css('font-size', '');
+    $(this).removeStyle('font-size');
+  });
+});
+
+$('#decreasetext').click(function() {
+    // alert("sjdfhks");
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize - 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
+
+$('#increasetext-mobile').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize + 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
+$('#resettext-mobile').click(function() {
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    $(this).css('font-size', '');
+    $(this).removeStyle('font-size');
+  });
+});
+
+$('#decreasetext-mobile').click(function() {
+    // alert("sjdfhks");
+  $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
+    var currentFontSize = parseInt($(this).css('font-size'));
+    var newFontSize = currentFontSize - 2;
+    $(this).css('font-size', newFontSize + 'px');
+  });
+});
+
+// Custom method to remove inline style
+$.fn.removeStyle = function(style) {
+  var search = new RegExp(style + '[^;]+;?', 'g');
+  return this.each(function() {
+    $(this).attr('style', function(i, style) {
+      return style.replace(search, '');
+    });
+  });
+};
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
+

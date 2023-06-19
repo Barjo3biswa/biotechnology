@@ -544,7 +544,7 @@
                   </div>
                 </div>
               </div>
-              <a class="btn btn-gray btn-sm" href="about.html">Read more</a>
+              <a class="btn btn-gray btn-sm" href="{{route('about-us')}}">Read more</a>
               <!-- <a href="#"><button>Read More</button></a> -->
             </div>
             <div class="col-md-4">

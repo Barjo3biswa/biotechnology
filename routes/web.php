@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home-page', function () {
-    return view('website.pages.index');
+    // return view('website.pages.index');
+    return redirect('/');
 })->name('home-page');
 
 Route::get('/about-us', function () {

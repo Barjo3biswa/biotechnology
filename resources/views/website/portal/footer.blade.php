@@ -1,4 +1,7 @@
-<footer id="footer" class="bg-black-222">
+<footer id="footer" class="bg-black-222" style="margin-top: auto;
+position: fixed;
+bottom: 0;
+width: 100%;">
     <div class="footer-bottom bg-black-333">
         <div class="container pt-20 pb-20">
             <div class="row">

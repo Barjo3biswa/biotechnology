@@ -83,153 +83,8 @@
   </div>
 
   <!-- Header -->
-  <header id="header" class="header">
-    <div class="header-top p-0 bg-lighter xs-text-center">
-      <div class="container pt-0 pb-0">
-        <div class="row">
-            <div class="col-sm-4 col-md-6 col-md-offset-2-right1">
-                <div class="logo-div">
-                    <a class="menuzord-brand pull-left flip" href="javascript:void(0)">
-                        <img src="./new-images/logo-removebg-preview.png" alt="" height="60" style="background: #fff;
-                        width: 73px;
-                        margin-right: 12px;">
-                        <h3 style="color: #5d9b46;">The Assam Biotechnology Council</h3>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-4 col-md-6">
-              <div class="gigw-guidlines">
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                  <div class="widget no-border m-0">
-                  <div class="mt-0 mb-0 flip sm-text-left">
-                      <div class="font-12 text-black-333 mb-0 font-weight-500">Skip to Main Content</div>
-                  </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border m-0">
-                    <div class="mt-0 mb-0 flip sm-text-left gigw">
-                        <div class="font-12 text-black-333 mb-0 font-weight-500 web-font-div">
-                          <button  id="decreasetext">A -</button>
-                          <button  id="resettext">A</button>
-                          <button  id="increasetext">A +</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border m-0">
-                    <div class="mt-0 mb-0 flip sm-text-left gigw">
-                        <div class="font-12 text-black-333 mb-0 font-weight-500"><a href="screen-reader.html">Screen Reader Access</a></div>
-                    </div>
-                    </div>
-                </div>
-              </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border m-0">
-                    <div class="mt-10 mb-10 flip sm-text-left gigw">
-                        <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-envelope text-theme-colored font-18"></i> Mail Us</div>
-                        <a href="#" class="font-12 text-gray"> info@gmail.com</a>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border m-0">
-                    <div class="mt-10 mb-10 flip sm-text-center">
-                        <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-map-marker text-theme-colored font-18"></i> Our Location</div>
-                        <a href="#" class="font-12 text-gray"> Amingaon, Guwahati</a>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-4">
-                    <div class="widget no-border m-0">
-                    <div class="mt-10 mb-10 flip sm-text-center">
-                        <!-- <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-phone-square text-theme-colored font-18"></i> +91-123456789</div> -->
-                        <ul class="styled-icons icon-dark icon-circled icon-sm">
-                          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                          <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                        <a href="#" class="font-12 text-gray">Our Social Media Handles</a>
-                    </div>
-                    </div>
-                </div>
-                <!-- <div class="col-sm-4 col-md-4 col-md-offset-2">
-                    <div class="widget no-border m-0">
-                    <div class="search-form-wrapper">
-                        <form id="searchform" class="mt-10" method="get">
-                        <input class="" type="text" name="s" id="searchinput" value="Enter your search" onblur="if(this.value == '') { this.value ='Enter your search'; }" onfocus="if(this.value =='Enter your search') { this.value = ''; }"  >
-                        <label>
-                            <input type="submit" value="" name="submit">
-                        </label>
-                        </form>
-                    </div>
-                    </div>
-                </div> -->
-                <!-- <ul class="styled-icons icon-dark icon-circled icon-sm" style="float: right;">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                </ul> -->
-            </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-nav">
-      <div class="header-nav-wrapper navbar-scrolltofixed bg-lightest">
-        <div class="container">
-          <nav id="menuzord-right" class="menuzord orange">
-            <!-- <a class="menuzord-brand pull-left flip mt-15" href="javascript:void(0)">
-              <img src="images/logo-wide.png" alt="">
-            </a> -->
-            <ul class="menuzord-menu" style="float:left;">
-              <li class="active"><a href="index.html">Home</a>
-              </li>
-              <li><a href="about.html">About Us</a></li>
-              <li>
-                <a href="#">Preamble</a>
-                <ul class="dropdown">
-                    <li><a href="preamble1.1.html">Biotechnology: A tool for socio-economic development</a></li>
-                    <li><a href="#">The biotechnology potential of Assam</a></li>
-                    <li><a href="#">Status of Biotechnology in Assam</a></li>
-                    <li><a href="#">Biotechnology Initiative in Assam</a></li>
-                    <li><a href="#">Key drivers and specific features for biotechnology policy formulation</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">The Policy</a>
-                <!-- <ul class="dropdown">
-                    <li><a href="#">Vision</a></li>
-                    <li><a href="policy-objectives.html">Policy Objectives</a>
-                    </li>
-                    <li><a href="#">Strategy</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Academic-Industry linkage</a></li>
-                            <li><a href="#">Process simplification for industry / Single window clearance</a></li>
-                            <li><a href="#">Infrastructure for biotech process and product development</a></li>
-                            <li><a href="#">Facilitating entrepreneurship</a></li>
-                            <li><a href="#">Facilitating network and linkages among stakeholders</a></li>
-                            <li><a href="#">Facilitating public-private partnership</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
-              </li>
-              <li><a href="thrust-areas.html">Thrust Areas</a></li>
-              <li>
-                <a href="#">COMMITTEES</a>
-                <ul class="dropdown">
-                    <li><a href="apex-committee.html">Apex Committee</a></li>
-                    <li><a href="executive-committe.html">Executive Committee</a></li>
-                </ul>
-              </li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-  
+  @include('website.layout.link-bar')
+
   <!-- Start main-content -->
   <div class="main-content">
 
@@ -238,7 +93,7 @@
       <div class="container pt-100 pb-50">
         <!-- Section Content -->
         <div class="section-content pt-100">
-          <div class="row"> 
+          <div class="row">
             <div class="col-md-12">
               <h3 class="title text-white"></h3>
             </div>
@@ -247,7 +102,7 @@
       </div>
     </section>
 
-    
+
     <!-- Appex -->
     <section id="about">
         <div class="container pb-40">
@@ -297,7 +152,7 @@
     </section>
 
   <!-- end main-content -->
-  
+
   <!-- Footer -->
   <footer id="footer" class="bg-black-222">
     <div class="container pt-70 pb-30">
@@ -339,7 +194,7 @@
         </div>
       </div>
       <div class="row mt-30">
-        
+
         <div class="col-md-6">
           <!-- <div class="widget dark">
             <h5 class="widget-title mb-10">Call Us Now</h5>
@@ -389,10 +244,10 @@
     </div>
   </footer>
   <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a> </div>
-<!-- end wrapper --> 
+<!-- end wrapper -->
 
-<!-- Footer Scripts --> 
-<!-- JS | Custom script for all pages --> 
+<!-- Footer Scripts -->
+<!-- JS | Custom script for all pages -->
 <script src="js/custom.js"></script>
 
 </body>

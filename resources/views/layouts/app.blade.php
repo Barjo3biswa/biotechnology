@@ -18,14 +18,38 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        .logo-div a {
+    display: flex;
+    align-items: center;
+    /* margin-top: 0; */
+    margin: 8px 30px 0 0;
+}
+.logo-div a img {
+    height: 60px;
+}
+.menuzord-brand img {
+    max-height: 55px;
+}
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="background-color: #f7f7f7 !important;">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </a> --}}
+                <div class="col-sm-4 col-md-6 col-md-offset-2-right1">
+                    <div class="logo-div">
+                        <a class="menuzord-brand pull-left flip" href="javascript:void(0)" style="text-decoration: none">
+                            <img src="./new-images/logo-removebg-preview.png" alt="" height="60" style="background: #fff;
+                            width: 73px;
+                            margin-right: 12px;">
+                            <h3 style="color: #5d9b46;">The Assam Biotechnology Council</h3>
+                        </a>
+                    </div>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

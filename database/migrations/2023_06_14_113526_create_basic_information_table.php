@@ -26,6 +26,10 @@ class CreateBasicInformationTable extends Migration
             $table->string('gst_no',100)->nullable();
             $table->string('dsr_csr_status',100)->nullable();
             $table->string('dsr_csr_reg_no',100)->nullable();
+
+            $table->string('certificate_of_incorporation',255)->nullable();
+            $table->string('pan_coppy',255)->nullable();
+            $table->string('registration_coppy',255)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

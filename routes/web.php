@@ -46,7 +46,7 @@ Route::get('/exe-committee', function () {
 })->name('exe-committee');
 
 Route::get('/Preamble', function () {
-    return view('website.pages.Preamble');
+    return view('website.pages.preamble');
 })->name('Preamble');
 
 

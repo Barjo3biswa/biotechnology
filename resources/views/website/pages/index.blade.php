@@ -969,6 +969,7 @@ $('#resettext').click(function() {
 });
 
 $('#decreasetext').click(function() {
+    alert("sjdfhks");
   $('html,body,h1,h2,h3,h4,h5,h6,p,li,a,strong,span,.tp-caption,div').each(function() {
     var currentFontSize = parseInt($(this).css('font-size'));
     var newFontSize = currentFontSize - 2;

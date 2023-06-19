@@ -71,7 +71,7 @@
                     <div class="widget no-border m-0 mobile-contact-info">
                       <div class="mt-10 mb-10 flip sm-text-left gigw">
                           <div class="font-15 text-black-333 mb-5 font-weight-600"><i class="fa fa-envelope text-theme-colored font-18"></i> Mail Us</div>
-                          <a href="#" class="font-12 text-gray"> info@gmail.com</a>
+                          <a href="#" class="font-12 text-gray">assambiotechnologycouncil@gmail.com</a>
                       </div>
                     </div>
                 </div>

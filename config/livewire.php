@@ -54,8 +54,8 @@ return [
     |
     */
 
-    'asset_url' => 'https://assambiotechcouncil.com',
-    // 'asset_url' => 'http://68.183.90.136/biotechnology/public',
+    // 'asset_url' => 'https://assambiotechcouncil.com',
+    'asset_url' => 'http://127.0.0.1:8000',
 
     /*
     |--------------------------------------------------------------------------

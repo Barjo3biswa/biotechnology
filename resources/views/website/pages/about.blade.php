@@ -113,7 +113,7 @@
             <div class="row">
               <div class="col-md-12">
                 <!-- <h2 class="title-pattern mt-0 mb-30"><span>About <span class="text-theme-colored">Us</span></span></h2> -->
-                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> About Assam Biotechnology Council</h2>
+                <h2 class="title-pattern1 mt-0 mb-30"><img src="{{asset('icons-test') }}/planting.png" alt="" width="24"> About Assam Biotechnology Council</h2>
                 <p style="text-align: justify;">To promote Assam as an attractive and competitive destination for investments in the field of Biotechnology and allied areas, Government of Assam have offered various incentives/benefits to all eligible Biotechnology Infrastructure, Biotechnology Parks, Biotechnology Units, Biotechnology Start Ups, Biotechnology Incubators/Incubation Centers set up/to be set in the State and Biotechnology research and education. They shall be entitled for benefits offered under the Biotechnology Policy for the State of Assam 2018-2022.</p>
 
                 <div class="row">

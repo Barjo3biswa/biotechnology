@@ -109,7 +109,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-9">
-                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Apex Committee</h2>
+                <h2 class="title-pattern1 mt-0 mb-30"><img src="{{asset('icons-test') }}/planting.png" alt="" width="24"> Apex Committee</h2>
                 <ol class="ordered-list-padding" type="A">
                     <li>There shall be an Apex Committee to monitor the functioning of the Assam Biotechnology Council and to provide necessary approvals.</li>
                     <li>The Apex Committee will have Chief Minister of Assam as the chairperson and Minister in Charge of Science & Technology Deptt as the Vice Chairperson.</li>

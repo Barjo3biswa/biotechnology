@@ -14,7 +14,8 @@
                     <tr>
                         <td>{{++$key}}</td>
                         <td>{{$val->type}}</td>
-                        <td><input type="number" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.amount"></td>
+                        <td><input type="hidden" type="hidden" wire:model="assistance_sought_values.{{$val->id}}.id">
+                            <input type="number" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.amount"></td>
                         <td><input type="text" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.remarks"></td>
                     </tr>
                 @endforeach

@@ -8,10 +8,17 @@ use App\Models\AssistanceSoughtMaster;
 use App\Models\BankAccountDetail;
 use App\Models\BasicInformation;
 use App\Models\BtParkDetail;
+use App\Models\BTUnitDetails;
 use App\Models\DirectorsPromoter;
 use App\Models\EntityType;
+use App\Models\FinancialProjection as ModelsFinancialProjection;
+use App\Models\FinancialProjectionMaster;
 use App\Models\MeansOfFinancing;
 use App\Models\ProjectCoast;
+use App\Models\RecruitmentSchedule;
+use App\Models\RecruitmentScheduleMaster;
+use App\Models\UndertakingExpansion;
+use Database\Seeders\FinancialProjection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
@@ -29,7 +36,7 @@ class AnnexureI extends Component
     public $entity_types;
 
     // Basic Information data
-    public $dsir_reg_status,$director_count=1,$director_array=[];
+    public $dsir_reg_status;
     public $unit_name, $phone_no, $telephone_no, $email, $entity_type, $pan_no, $gst_no, $dsr_csr_status, $dsr_csr_reg_no;
     public $director_details;
     public $certificate_of_incorporation, $pan_coppyii, $registration_coppy;
@@ -37,8 +44,7 @@ class AnnexureI extends Component
     // BT PARK / R&D INSTITUTE / FINISHING SCHOOL
     public $location, $area_of_land, $proff_of_land, $description, $project_report, $noc_certificate;
 
-    //project Coast
-    public $coast_count=1,$project_coast;
+
 
     //Means Of Financing
     public $tot_coast, $promoters_contribution, $enterprise_contribution, $expect_from_ass_gov, $expect_from_oth_gov, $loan_selection_letter, $total;
@@ -49,21 +55,28 @@ class AnnexureI extends Component
     //Assistance sought
     public $assistance_sought,$assistance_sought_values;
 
+    //Annexure IB
+    public $recruitment_master, $recruitment_schedule, $financial_projection;
+    public $unit_expansion, $location_ib, $office_space, $proff_of_land_doc, $description_ib, $noc_ib, $report_ib;
+    public $no_of_employee, $annual_epf, $electricity_consupt, $current_area, $year_i, $year_ii, $year_iii, $vat_year_i, $vat_year_ii, $vat_year_iii;
+    public $financial_projections;
     public function render()
     {
         // dd("ok");
         $this->entity_types=EntityType::get();
         $this->application_list=Application::where('user_id',Auth::user()->id)->get();
         $this->assistance_sought = AssistanceSoughtMaster::get();
+        $this->recruitment_master = RecruitmentScheduleMaster::get();
+        $this->financial_projection = FinancialProjectionMaster::get();
+        // dd($this->financial_projection);
         return view('livewire.annexure-i');
     }
 
-    public function testThis(){
-        dd("ok");
-    }
     public function applicationStep($status){
         // dd("ok");
         if($status=='apply'){
+            $this->edit_load = null;
+            $this->sub_step=null;
             $this->app_list=0;
         }else{
             $this->app_list=1;
@@ -82,14 +95,18 @@ class AnnexureI extends Component
         }
     }
 
+
+    public $coast_count=1,$project_coast,$coast_array=[],$director_count=1,$director_array=[];
     public function Increment($test){
         if($test=="director_count"){
            array_push($this->director_array ,$this->director_count++);
         }
         if($test=="coast_count"){
-            $this->coast_count++;
+            array_push($this->coast_array ,$this->coast_count++);
+            // $this->coast_count++;
         }
     }
+
     public function Decrement($test,$i){
         if($test=="director_count"){
             unset($this->director_array[$i]);
@@ -98,9 +115,11 @@ class AnnexureI extends Component
             $this->coast_count++;
         }
     }
-
+    public $edit_load=null;
     public function editLoad($id){
         $application=Application::where('id',$id)->first();
+        $this->edit_load = $application->application_type;
+        $this->step = $application->application_type;
         $this->application_id = $id;
         $this->director_count=1;
         // $this->dsir_reg_status = $application->;
@@ -114,12 +133,41 @@ class AnnexureI extends Component
         $this->dsir_reg_status = $application->BasicInformation->dsr_csr_status??Null;
         $this->dsr_csr_reg_no = $application->BasicInformation->dsr_csr_reg_no??Null;
 
-        // $this->dir_name = $application->;
-        // $this->dir_pan = $application->;
-        // $this->dir_email = $application->;
-        // $this->dir_cont = $application->;
-        // $this->dir_add = $application->;
+        $this->director_details=[];
+        $this->director_array=[];
+        foreach($application->Directors as $key=> $direc){
+            array_push($this->director_array ,$this->director_count++);
+            $data=[
+                'dir_id'     => $direc->id,
+                'dir_name'   => $direc->name,
+                'din_pan_no' => $direc->din_pan_no,
+                'dir_email'  => $direc->email,
+                'dir_cont'   => $direc->contact_no,
+                'dir_add'    => $direc->address,
+            ];
+            $this->director_details[] = $data;
+        }
 
+        foreach($application->ProjectCoast as $key=>$cost){
+            array_push($this->coast_array ,$this->coast_count++);
+            $data=[
+                'id'             => $cost->id,
+                'component_name' => $cost->component_name,
+                'coast'          => $cost->coast,
+            ];
+            $this->project_coast[] = $data;
+        }
+
+
+        foreach($application->AssistanceSought as $key=>$sought){
+            $data=[
+                'id'     => $sought->id,
+                'amount' => $sought->amount,
+                'remarks'=> $sought->remarks,
+            ];
+            $this->assistance_sought_values[++$key] = $data;
+        }
+        // dd($this->assistance_sought_values);
         $this->location = $application->DetailsBTPark->location??Null;
         $this->area_of_land = $application->DetailsBTPark->area_of_land??Null;
         $this->proff_of_land = $application->DetailsBTPark->proff_of_land??Null;
@@ -149,6 +197,10 @@ class AnnexureI extends Component
         $this->app_list=0;
     }
 
+    // public function getApplicationType(){
+
+    // }
+
     public function saveBasicInfo(){
         // dd($this->director_details);
         $this->validate([
@@ -168,7 +220,7 @@ class AnnexureI extends Component
             if($this->application_id==null){
                 $this->application=Application::create([
                     'user_id' => Auth::user()->id,
-                    'application_type' => 'AnnexureIA',
+                    'application_type' => $this->step,
                     'basic_info' => 1,
                     'application_status' => 'created',
                 ]);
@@ -194,7 +246,9 @@ class AnnexureI extends Component
                 ]);
                 if($this->director_details){
                     foreach($this->director_details as $details){
-                        DirectorsPromoter::create([
+                        DirectorsPromoter::updateOrcreate(
+                            [ 'id' => $details['dir_id']??0 ],
+                            [
                             'application_id' => $this->application_id,
                             'name' => $details['dir_name'],
                             'din_pan_no' => $details['din_pan_no'],
@@ -253,33 +307,18 @@ class AnnexureI extends Component
     }
 
     public function saveProjectCoast(){
-        //  dd($this->project_coast);
-        // $this->validate([
-        //     'project_coast.*.component_name' =>'required',
-        //     'project_coast.*.coast' =>'required',
-        // ]);
-
         DB::beginTransaction();
         try{
-            // dd($this->project_coast);
             Application::where('id',$this->application_id)->update(['coast'=>1]);
             foreach($this->project_coast as $key=>$pc){
                 ProjectCoast::updateOrcreate(
-                    [ 'application_id' => $key/* $this->application_id */ ],
+                    [ 'id' => $pc['id']??0],
                     [
                     'application_id' => $this->application_id,
                     'component_name' => $pc['component_name'],
                     'coast'     => $pc['coast'],
                 ]);
             }
-            // dd("ok");
-            // ProjectCoast::updateOrcreate(
-            //     [ 'application_id' => $this->application_id ],
-            //     [
-            //     'application_id' => 1,
-            //     'component_name' => $this->component,
-            //     'coast'     => $this->coast,
-            // ]);
             $this->project_coast=null;
             DB::commit();
             $this->error=0;$this->success=1;
@@ -364,11 +403,13 @@ class AnnexureI extends Component
     }
 
     public function saveAssistanceSought(){
+        // dd($this->assistance_sought_values);
         DB::beginTransaction();
         try{
             Application::where('id',$this->application_id)->update(['scheme'=>1]);
             foreach($this->assistance_sought_values as $id=>$sought){
-                AssistanceSought::create([
+                AssistanceSought::updateOrcreate(
+                    [ 'id' => $sought['id'] ],[
                     'application_id' =>	$this->application_id,
                     'type_id' => $id,
                     'amount' => $sought['amount'],
@@ -392,6 +433,98 @@ class AnnexureI extends Component
     {
         $file_name = date('YmdHis') . "_" . rand(4512, 6859) . $file_name .'.'. $file->getClientOriginalExtension();
         return $file->storeAs('Uploads',$file_name,'public');
+    }
+
+    public function saveDetailsBTParkIB(){
+
+        DB::beginTransaction();
+        try{
+            BTUnitDetails::create([
+                'application_id' =>	$this->application_id,
+                'unit_expansion' => $this->unit_expansion,
+                'location_ib' => $this->location_ib,
+                'office_space' => $this->office_space,
+                'proff_of_land_doc' => $this->proff_of_land_doc,
+                'description_ib' => $this->description_ib,
+                'noc_ib' => $this->noc_ib,
+                'report_ib' => $this->report_ib,
+            ]);
+            foreach($this->recruitment_schedule as $key=>$schedule){
+                RecruitmentSchedule::create([
+                    'application_id' =>	$this->application_id,
+                    'master_id' => $key,
+                    'year_i' => $schedule['year_i'],
+                    'year_ii' => $schedule['year_ii'],
+                    'year_iii' => $schedule['year_iii'],
+                    'year_iv' => $schedule['year_iv'],
+                    'year_v' => $schedule['year_v'],
+                ]);
+            }
+            DB::commit();
+            $this->error=0;$this->success=1;
+            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            dd($e);
+            DB::rollback();
+            $this->error=1;$this->success=0;
+            $this->error_msg="Something Went Wrong, please try again.";
+        }
+    }
+
+    public function saveDetailsBTUndertakingIB(){
+        DB::beginTransaction();
+        try{
+            UndertakingExpansion::create([
+                'application_id' =>	$this->application_id,
+                'no_of_employee'=>$this->no_of_employee,
+                'annual_epf'=>$this->annual_epf,
+                'electricity_consupt'=>$this->electricity_consupt,
+                'current_area'=>$this->current_area,
+                'year_i'=>$this->year_i,
+                'year_ii'=>$this->year_ii,
+                'year_iii'=>$this->year_iii,
+                'vat_year_i'=>$this->vat_year_i,
+                'vat_year_ii'=>$this->vat_year_ii,
+                'vat_year_iii'=>$this->vat_year_iii,
+            ]);
+            DB::commit();
+            $this->error=0;$this->success=1;
+            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            // dd($e);
+            DB::rollback();
+            $this->error=1;$this->success=0;
+            $this->error_msg="Something Went Wrong, please try again.";
+        }
+    }
+
+    public function saveFinancialProjection(){
+        DB::beginTransaction();
+        try{
+            foreach($this->financial_projections as $key=>$val){
+                ModelsFinancialProjection::create([
+                    'application_id'=>$this->application_id,
+                    'master_id' => $key,
+                    'year_i' => $val['year_i'],
+                    'year_ii' => $val['year_ii'],
+                    'year_iii' => $val['year_iii'],
+                    'year_iv' => $val['year_iv'],
+                    'year_v' => $val['year_v'],
+                ]);
+            }
+
+            DB::commit();
+            $this->error=0;$this->success=1;
+            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            // dd($e);
+            DB::rollback();
+            $this->error=1;$this->success=0;
+            $this->error_msg="Something Went Wrong, please try again.";
+        }
     }
 
 

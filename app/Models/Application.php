@@ -30,4 +30,12 @@ class Application extends Model
     public function BankACDetails(){
         return $this->hasOne(BankAccountDetail::class,'application_id','id');
     }
+
+    public function Directors(){
+        return $this->hasMany(DirectorsPromoter::class,'application_id','id');
+    }
+
+    public function AssistanceSought(){
+        return $this->hasMany(AssistanceSought::class,'application_id','id');
+    }
 }

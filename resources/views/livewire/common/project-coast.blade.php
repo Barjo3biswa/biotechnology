@@ -17,21 +17,22 @@
                 <input type="button" class="btn btn-primary" value="Add More" wire:click="Increment('coast_count')">
             </div>
         </div>
-        @for ($i=0; $i < $coast_count;$i++)
+        @foreach ($coast_array as $key=>$coast)
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label class="col-form-label">PROJECT COMPONENT</label>
-                    <input class="form-control" type="text" wire:model="project_coast.{{$i}}.component_name">
-                    @error('project_coast.'.$i.'.component_name') <span class="error-msg">{{ $message }}</span> @enderror
+                    <input type="hidden" wire:model="project_coast.{{$key}}.id">
+                    <input class="form-control" type="text" wire:model="project_coast.{{$key}}.component_name">
+                    @error('project_coast.'.$key.'.component_name') <span class="error-msg">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="col-sm-6">
                     <label class="col-form-label">COST (IN RS.)</label>
-                    <input class="form-control" type="number" wire:model="project_coast.{{$i}}.coast">
-                    @error('project_coast.'.$i.'.coast') <span class="error-msg">{{ $message }}</span> @enderror
+                    <input class="form-control" type="number" wire:model="project_coast.{{$key}}.coast">
+                    @error('project_coast.'.$key.'.coast') <span class="error-msg">{{ $message }}</span> @enderror
                 </div>
             </div>
-        @endfor
+        @endforeach
         <div class="form-group row">
             <div class="col-sm-12">
                 <input type="submit" class="btn btn-primary" value="Submit">

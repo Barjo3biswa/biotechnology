@@ -108,7 +108,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-12">
-                <h2 class="title-pattern1 mt-30 mb-30"><img src="./icons/planting.png" alt="" width="24"> Thrust Areas</h2>
+                <h2 class="title-pattern1 mt-30 mb-30"><img src="{{asset('icons-test') }}/planting.png" alt="" width="24"> Thrust Areas</h2>
                 <p>The following thrust areas have been identified for biotech development in the state of Assam :</p>
                 <ol class="ordered-list-padding" type="A">
                     <li><strong>Agriculture biotechnology :</strong> The key activities in agriculture biotechnology would include

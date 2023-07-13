@@ -164,7 +164,7 @@
                             <ul class="dropdown">
                                 <li><a href="{{route('form')}}" target="_blank">Application for Availing Assistance for START UPS</a></li>
                                 <li><a href="#">Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School</a></li>
-                                <li><a href="#">Format for Recording Minutes of Screening Committee</a></li>
+                                {{-- <li><a href="#">Format for Recording Minutes of Screening Committee</a></li> --}}
                                 <li><a href="">Application Form for Availing Assistance for BT Unit </a></li>
                             </ul>
                         </li>

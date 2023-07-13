@@ -107,6 +107,7 @@
             <div class="form-group row">
                 <div class="col-sm-6">
                     <label class="col-form-label">NAME:</label>
+                    <input type="hidden" wire:model="director_details.{{$key}}.dir_id">
                     <input class="form-control" type="text" wire:model="director_details.{{$key}}.dir_name">
                 </div>
                 <div class="col-sm-6">
@@ -132,9 +133,7 @@
                     <input class="form-control" type="text" wire:model="director_details.{{$key}}.dir_add">
                 </div>
                 <div class="col-sm-2">
-                    <button wire:click="Decrement('director_count',{{$key}})" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    {{-- <i class="fa fa-trash" aria-hidden="true" wire:click="Decrement('director_count',{{$key}})"></i> --}}
-                    {{-- <input wire:click="Decrement('director_count',{{$key}})" class="btn btn-danger" value="Remove"> --}}
+                    <i aria-hidden="true" wire:click="Decrement('director_count',{{$key}})" class=" fa fa-trash btn btn-danger"></i>
                 </div>
             </div>
         @endforeach

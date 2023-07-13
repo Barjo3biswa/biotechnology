@@ -109,7 +109,7 @@
           <div class="section-content">
             <div class="row">
               <div class="col-md-9">
-                <h2 class="title-pattern1 mt-0 mb-30"><img src="./icons/planting.png" alt="" width="24"> Executive Committee</h2>
+                <h2 class="title-pattern1 mt-0 mb-30"><img src="{{asset('icons-test') }}/planting.png" alt="" width="24"> Executive Committee</h2>
                 <ol class="ordered-list-padding" type="A">
                     <li>The senior-most secretary of Science and Technology department, Government of Assam will be the chairperson of the Executive Committee and the Director, Assam Biotechnology Council will be it's member secretary.</li>
                     <li>The executive committee shall also consist of other stake holders representative.</li>

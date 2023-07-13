@@ -122,6 +122,11 @@ class AnnexureI extends Component
     public function editLoad($id){
         $application=Application::where('id',$id)->first();
         $this->edit_load = $application->application_type;
+        if($this->edit_load=="AnnexureIA"){
+            $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
+        }elseif($this->edit_load=="AnnexureIB"){
+            $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR BT UNIT";
+        }
         $this->sub_step_name = $application->sub_application_type;
         $this->step = $application->application_type;
         $this->application_id = $id;

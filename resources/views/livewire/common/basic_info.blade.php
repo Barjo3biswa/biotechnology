@@ -1,5 +1,24 @@
 <div class="form-container">
     <form wire:submit.prevent="saveBasicInfo" enctype="multipart/form-data">
+        @if($step=="AnnexureIA")
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label class="col-form-label">You are applyiong for</label>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" wire:model="sub_step_name" value="BT Park">
+                <label>BT Park</label><br>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" wire:model="sub_step_name" value="R&D Institute">
+                <label>R&D Institute</label><br>
+            </div>
+            <div class="col-sm-2">
+                <input type="radio" wire:model="sub_step_name" value="Finishing School">
+                <label>Finishing School</label>
+            </div>
+        </div>
+        @endif
         <div class="form-group row">
             <div class="col-sm-12">
                 <label class="col-form-label">Name of the Unit:</label>
@@ -123,7 +142,7 @@
                 </div>
                 <div class="col-sm-6">
                     <label class="col-form-label">CONTACT NO No.:</label>
-                    <input class="form-control" type="text" wire:model="director_details.{{$key}}.dir_cont">
+                    <input class="form-control" type="number" wire:model="director_details.{{$key}}.dir_cont">
                 </div>
             </div>
 

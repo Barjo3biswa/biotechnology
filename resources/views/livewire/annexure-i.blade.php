@@ -43,12 +43,15 @@
                 <div class="container pb-0 pt-0">
                     <div class="section-content">
                         <div class="row">
+                            <div class="alert alert-success" role="alert">
+                                {{$form_name}}
+                            </div>
                             <div wire:loading>
                                 <div class="loader">
                                     <img src="{{asset('ZKZg.gif') }}" alt="Girl in a jacket" width="100" height="100">
                                 </div>
                             </div>
-                            @if($success==1)
+                            {{-- @if($success==1)
                             <div class="alert alert-success" role="alert">
                                 <button type="button" class="close" data-dismiss="alert">&times;</button><br/>
                                 {{$success_msg}}
@@ -59,7 +62,7 @@
                                 <button type="button" class="close" data-dismiss="alert">&times;</button><br/>
                                 {{$error_msg}}
                             </div>
-                            @endif
+                            @endif--}}
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-7 col-md-7" wire:click="formSubStep('AnnexureIABasicInfo')">

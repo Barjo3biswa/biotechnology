@@ -1,6 +1,6 @@
 <div class="form-container">
     <form wire:submit.prevent="saveAssistanceSought">
-        <table class="table table-responsive">
+        <table class="table table-responsive white-green">
             <thead>
                 <tr>
                     <th width=5%>#</th>
@@ -12,11 +12,11 @@
             <tbody>
                 @foreach ($assistance_sought as $key=>$val)
                     <tr>
-                        <td>{{++$key}}</td>
-                        <td>{{$val->type}}</td>
-                        <td><input type="hidden" type="hidden" wire:model="assistance_sought_values.{{$val->id}}.id">
-                            <input type="number" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.amount"></td>
-                        <td><input type="text" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.remarks"></td>
+                        <th>{{++$key}}</th>
+                        <th>{{$val->type}}</th>
+                        <th><input type="hidden" type="hidden" wire:model="assistance_sought_values.{{$val->id}}.id">
+                            <input type="number" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.amount"></th>
+                        <th><input type="text" class="form-control" wire:model="assistance_sought_values.{{$val->id}}.remarks"></th>
                     </tr>
                 @endforeach
             </tbody>

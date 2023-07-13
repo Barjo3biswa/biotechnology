@@ -1,6 +1,6 @@
 <div class="form-container">
     <form wire:submit.prevent="saveFinancialProjection" enctype="multipart/form-data">
-        <table class="table table-responsive">
+        <table class="table table-responsive white-green">
             <tbody>
                 <tr>
                     {{-- <th>#</th> --}}
@@ -15,7 +15,9 @@
             <tbody>
                 @foreach ($financial_projection as $key=>$project)
                     <tr>
-                        <th>{{$project->name}}</th>
+                        <th>{{$project->name}}
+                        <input type="hidden" wire:model="financial_projections.{{$project->id}}.id">
+                        </th>
                         <th><input type="text" class="form-control" wire:model="financial_projections.{{$project->id}}.year_i"></th>
                         <th><input type="text" class="form-control" wire:model="financial_projections.{{$project->id}}.year_ii"></th>
                         <th><input type="text" class="form-control" wire:model="financial_projections.{{$project->id}}.year_iii"></th>

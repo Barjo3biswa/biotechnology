@@ -28,12 +28,12 @@ class AnnexureI extends Component
 {
 
     use WithFileUploads;
-    public $application_id;
+    public $application_id, $form_name="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
 
     public $app_list=1, $step="AnnexureIA", $sub_step,$success,$error,$success_msg,$error_msg,$application,$application_list;
 
     // database value form value
-    public $entity_types;
+    public $entity_types, $sub_step_name;
 
     // Basic Information data
     public $dsir_reg_status;
@@ -62,18 +62,15 @@ class AnnexureI extends Component
     public $financial_projections;
     public function render()
     {
-        // dd("ok");
         $this->entity_types=EntityType::get();
         $this->application_list=Application::where('user_id',Auth::user()->id)->get();
         $this->assistance_sought = AssistanceSoughtMaster::get();
         $this->recruitment_master = RecruitmentScheduleMaster::get();
         $this->financial_projection = FinancialProjectionMaster::get();
-        // dd($this->financial_projection);
         return view('livewire.annexure-i');
     }
 
     public function applicationStep($status){
-        // dd("ok");
         if($status=='apply'){
             $this->edit_load = null;
             $this->sub_step=null;
@@ -82,7 +79,14 @@ class AnnexureI extends Component
             $this->app_list=1;
         }
     }
+
     public function formStep($IpStep){
+        if($IpStep=="AnnexureIA"){
+            $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
+        }elseif($IpStep=="AnnexureIB"){
+            $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR BT UNIT";
+        }
+
         $this->sub_step=null;
         $this->step=$IpStep;
     }
@@ -95,7 +99,6 @@ class AnnexureI extends Component
         }
     }
 
-
     public $coast_count=1,$project_coast,$coast_array=[],$director_count=1,$director_array=[];
     public function Increment($test){
         if($test=="director_count"){
@@ -103,7 +106,6 @@ class AnnexureI extends Component
         }
         if($test=="coast_count"){
             array_push($this->coast_array ,$this->coast_count++);
-            // $this->coast_count++;
         }
     }
 
@@ -115,14 +117,15 @@ class AnnexureI extends Component
             $this->coast_count++;
         }
     }
+
     public $edit_load=null;
     public function editLoad($id){
         $application=Application::where('id',$id)->first();
         $this->edit_load = $application->application_type;
+        $this->sub_step_name = $application->sub_application_type;
         $this->step = $application->application_type;
         $this->application_id = $id;
         $this->director_count=1;
-        // $this->dsir_reg_status = $application->;
         $this->unit_name = $application->BasicInformation->unit_name??Null;
         $this->phone_no = $application->BasicInformation->phone_no??Null;
         $this->telephone_no = $application->BasicInformation->telephone_no??Null;
@@ -167,7 +170,6 @@ class AnnexureI extends Component
             ];
             $this->assistance_sought_values[++$key] = $data;
         }
-        // dd($this->assistance_sought_values);
         $this->location = $application->DetailsBTPark->location??Null;
         $this->area_of_land = $application->DetailsBTPark->area_of_land??Null;
         $this->proff_of_land = $application->DetailsBTPark->proff_of_land??Null;
@@ -175,34 +177,66 @@ class AnnexureI extends Component
         $this->project_report = $application->DetailsBTPark->project_report??Null;
         $this->noc_certificate = $application->DetailsBTPark->noc_certificate??Null;
 
-        // $this->component = $application->ProjectCoast->component_name??Null;
-        // $this->coast = $application->ProjectCoast->coast??Null;
-        // $this->project_coast=$application->ProjectCoast??Null;
-        // dd($this->project_coast);??Null
-
-        $this->tot_coast = $application->MeansOfFinancing->tot_coast??Null;
+        $this->tot_coast = $application->MeansOfFinancing->tot_coast??null;
         $this->promoters_contribution = $application->MeansOfFinancing->promoters_contribution??Null;
         $this->enterprise_contribution = $application->MeansOfFinancing->enterprise_contribution??Null;
         $this->expect_from_ass_gov = $application->MeansOfFinancing->expect_from_ass_gov??Null;
         $this->expect_from_oth_gov = $application->MeansOfFinancing->expect_from_oth_gov??Null;
         $this->loan_selection_letter = $application->MeansOfFinancing->loan_selection_letter??Null;
         $this->total = $application->MeansOfFinancing->total??Null;
-
         $this->ac_hol_name = $application->BankACDetails->ac_hol_name??Null;
         $this->bank_name = $application->BankACDetails->bank_name??Null;
         $this->account_number = $application->BankACDetails->account_number??Null;
         $this->ifsc_code = $application->BankACDetails->ifsc_code??Null;
         $this->rtgs_dts = $application->BankACDetails->rtgs_dts??Null;
 
+        if($application->BTUnitDetails){
+            $this->unit_expansion = $application->BTUnitDetails->unit_expansion;
+            $this->location_ib = $application->BTUnitDetails->location_ib;
+            $this->office_space = $application->BTUnitDetails->office_space;
+
+            foreach($application->RecruitmentSchedule as $key=>$schedule){
+                $data=[
+                    'id'      => $schedule->id,
+                    'year_i'  => $schedule->year_i,
+                    'year_ii' => $schedule->year_ii,
+                    'year_iii'=> $schedule->year_iii,
+                    'year_iv' => $schedule->year_iv,
+                    'year_v'  => $schedule->year_v,
+                ];
+                $this->recruitment_schedule[++$key] = $data;
+            }
+        }
+        if($application->UndertakingExpansion){
+            $this->no_of_employee = $application->UndertakingExpansion->no_of_employee??null;
+            $this->annual_epf = $application->UndertakingExpansion->annual_epf??null;
+            $this->electricity_consupt = $application->UndertakingExpansion->electricity_consupt??null;
+            $this->current_area = $application->UndertakingExpansion->current_area??null;
+            $this->year_i = $application->UndertakingExpansion->year_i??null;
+            $this->year_ii = $application->UndertakingExpansion->year_ii??null;
+            $this->year_iii = $application->UndertakingExpansion->year_iii??null;
+            $this->vat_year_i = $application->UndertakingExpansion->vat_year_i??null;
+            $this->vat_year_ii = $application->UndertakingExpansion->vat_year_ii??null;
+            $this->vat_year_iii = $application->UndertakingExpansion->vat_year_iii??null;
+        }
+
+        if($application->FinancialProjection){
+            foreach($application->FinancialProjection as $key=>$project){
+                $data=[
+                    'id' => $project->id,
+                    'year_i' => $project->year_i,
+                    'year_ii' => $project->year_ii,
+                    'year_iii' => $project->year_iii,
+                    'year_iv' => $project->year_iv,
+                    'year_v' => $project->year_v,
+                ];
+                $this->financial_projections[++$key] = $data;
+            }
+        }
         $this->app_list=0;
     }
 
-    // public function getApplicationType(){
-
-    // }
-
     public function saveBasicInfo(){
-        // dd($this->director_details);
         $this->validate([
             'unit_name'=> 'required',
             'phone_no'=> 'required|digits:10',
@@ -223,6 +257,7 @@ class AnnexureI extends Component
                     'application_type' => $this->step,
                     'basic_info' => 1,
                     'application_status' => 'created',
+                    'sub_application_type' => $this->sub_step_name,
                 ]);
                 $this->application_id = $this->application->id;
             }
@@ -260,14 +295,13 @@ class AnnexureI extends Component
                 }
 
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Basic Information.";
             $this->sub_step=null;
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
 
     }
@@ -296,13 +330,13 @@ class AnnexureI extends Component
                     'noc_certificate' =>  $this->storeDocs($this->noc_certificate,'noc_certificate'),
                 ]);
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Basic Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 
@@ -321,14 +355,13 @@ class AnnexureI extends Component
             }
             $this->project_coast=null;
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Project Coat Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 
@@ -357,14 +390,13 @@ class AnnexureI extends Component
                 'total' => $this->total,
             ]);
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Basic Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
 
     }
@@ -391,25 +423,23 @@ class AnnexureI extends Component
                 'rtgs_dts'=> $this->rtgs_dts,
             ]);
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Basic Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 
     public function saveAssistanceSought(){
-        // dd($this->assistance_sought_values);
         DB::beginTransaction();
         try{
             Application::where('id',$this->application_id)->update(['scheme'=>1]);
             foreach($this->assistance_sought_values as $id=>$sought){
                 AssistanceSought::updateOrcreate(
-                    [ 'id' => $sought['id'] ],[
+                    [ 'id' => $sought['id']??0 ],[
                     'application_id' =>	$this->application_id,
                     'type_id' => $id,
                     'amount' => $sought['amount'],
@@ -419,14 +449,13 @@ class AnnexureI extends Component
             }
             $this->project_coast=null;
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Assistance Sought under the scheme Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
     public function storeDocs($file,$file_name)
@@ -436,10 +465,11 @@ class AnnexureI extends Component
     }
 
     public function saveDetailsBTParkIB(){
-
         DB::beginTransaction();
         try{
-            BTUnitDetails::create([
+            BTUnitDetails::updateOrcreate(
+                [ 'application_id' => $this->application_id ],
+                [
                 'application_id' =>	$this->application_id,
                 'unit_expansion' => $this->unit_expansion,
                 'location_ib' => $this->location_ib,
@@ -450,7 +480,9 @@ class AnnexureI extends Component
                 'report_ib' => $this->report_ib,
             ]);
             foreach($this->recruitment_schedule as $key=>$schedule){
-                RecruitmentSchedule::create([
+                RecruitmentSchedule::updateOrcreate(
+                    [ 'id' => $schedule['id'] ],
+                    [
                     'application_id' =>	$this->application_id,
                     'master_id' => $key,
                     'year_i' => $schedule['year_i'],
@@ -461,21 +493,22 @@ class AnnexureI extends Component
                 ]);
             }
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 
     public function saveDetailsBTUndertakingIB(){
         DB::beginTransaction();
         try{
-            UndertakingExpansion::create([
+            UndertakingExpansion::updateOrcreate(
+                [ 'application_id' => $this->application_id ],
+                [
                 'application_id' =>	$this->application_id,
                 'no_of_employee'=>$this->no_of_employee,
                 'annual_epf'=>$this->annual_epf,
@@ -489,14 +522,13 @@ class AnnexureI extends Component
                 'vat_year_iii'=>$this->vat_year_iii,
             ]);
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
-            // dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 
@@ -504,7 +536,9 @@ class AnnexureI extends Component
         DB::beginTransaction();
         try{
             foreach($this->financial_projections as $key=>$val){
-                ModelsFinancialProjection::create([
+                ModelsFinancialProjection::updateOrcreate(
+                    [ 'id' => $val['id']??0 ],
+                    [
                     'application_id'=>$this->application_id,
                     'master_id' => $key,
                     'year_i' => $val['year_i'],
@@ -516,14 +550,14 @@ class AnnexureI extends Component
             }
 
             DB::commit();
-            $this->error=0;$this->success=1;
-            $this->success_msg="Successfully Inserted Details of Eligible BT Unit Information.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
             // dd($e);
             DB::rollback();
-            $this->error=1;$this->success=0;
-            $this->error_msg="Something Went Wrong, please try again.";
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
 

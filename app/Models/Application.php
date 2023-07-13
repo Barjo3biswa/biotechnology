@@ -15,18 +15,19 @@ class Application extends Model
     public function BasicInformation(){
         return $this->hasOne(BasicInformation::class,'application_id','id');
     }
+
     public function DetailsBTPark(){
         return $this->hasOne(BtParkDetail::class,'application_id','id');
     }
+
     public function ProjectCoast(){
         return $this->hasMany(ProjectCoast::class,'application_id','id');
     }
+
     public function MeansOfFinancing(){
         return $this->hasOne(MeansOfFinancing::class,'application_id','id');
     }
-    // public function BasicInformation(){
-    //     return $this->hasOne(BasicInformation::class,'application_id','id');
-    // }
+
     public function BankACDetails(){
         return $this->hasOne(BankAccountDetail::class,'application_id','id');
     }
@@ -37,5 +38,21 @@ class Application extends Model
 
     public function AssistanceSought(){
         return $this->hasMany(AssistanceSought::class,'application_id','id');
+    }
+
+    public function BTUnitDetails(){
+        return $this->hasOne(BTUnitDetails::class,'application_id','id');
+    }
+
+    public function RecruitmentSchedule(){
+        return $this->hasMany(RecruitmentSchedule::class,'application_id','id');
+    }
+
+    public function UndertakingExpansion(){
+        return $this->hasOne(UndertakingExpansion::class,'application_id','id');
+    }
+
+    public function FinancialProjection(){
+        return $this->hasMany(FinancialProjection::class,'application_id','id');
     }
 }

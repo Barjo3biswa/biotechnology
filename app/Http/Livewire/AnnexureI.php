@@ -17,6 +17,7 @@ use App\Models\MeansOfFinancing;
 use App\Models\ProjectCoast;
 use App\Models\RecruitmentSchedule;
 use App\Models\RecruitmentScheduleMaster;
+use App\Models\StartUp;
 use App\Models\UndertakingExpansion;
 use Database\Seeders\FinancialProjection;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,10 @@ class AnnexureI extends Component
     public $unit_expansion, $location_ib, $office_space, $proff_of_land_doc, $description_ib, $noc_ib, $report_ib;
     public $no_of_employee, $annual_epf, $electricity_consupt, $current_area, $year_i, $year_ii, $year_iii, $vat_year_i, $vat_year_ii, $vat_year_iii;
     public $financial_projections;
+
+    //Annexure IC
+    public $business_idea, $product_service, $technology, $approach, $mentor, $incubator;
+
     public function render()
     {
         $this->entity_types=EntityType::get();
@@ -85,6 +90,10 @@ class AnnexureI extends Component
             $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
         }elseif($IpStep=="AnnexureIB"){
             $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR BT UNIT";
+        }elseif($IpStep=="AnnexureIC"){
+            $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR START UPS";
+        }elseif($IpStep=="AnnexureID"){
+            $this->form_name ="Application Form for Availing Assistance for BT Incubators/Incubation Centers";
         }
 
         $this->sub_step=null;
@@ -126,6 +135,10 @@ class AnnexureI extends Component
             $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
         }elseif($this->edit_load=="AnnexureIB"){
             $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR BT UNIT";
+        }elseif($this->edit_load=="AnnexureIC"){
+            $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR START UPS";
+        }elseif($this->edit_load=="AnnexureID"){
+            $this->form_name ="Application Form for Availing Assistance for BT Incubators/Incubation Centers";
         }
         $this->sub_step_name = $application->sub_application_type;
         $this->step = $application->application_type;
@@ -238,6 +251,18 @@ class AnnexureI extends Component
                 $this->financial_projections[++$key] = $data;
             }
         }
+
+
+        if($application->startUps){
+            // dd($application->startUps);
+            $this->business_idea = $application->startUps->business_idea??null;
+            $this->product_service = $application->startUps->product_service??null;
+            $this->technology = $application->startUps->technology??null;
+            $this->approach = $application->startUps->approach??null;
+            $this->mentor = $application->startUps->mentor??null;
+            $this->incubator = $application->startUps->incubator??null;
+        }
+        // dd($this->business_idea);
         $this->app_list=0;
     }
 
@@ -560,6 +585,40 @@ class AnnexureI extends Component
             $this->sub_step=null;
         }catch(\Exception $e){
             // dd($e);
+            DB::rollback();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
+        }
+    }
+
+    public function saveStartUp(){
+        // $business_idea, $product_service, $technology, $approach, $mentor, $incubator;
+        $this->validate([
+            'business_idea'=> 'required',
+            'product_service'=> 'required',
+            'technology'=> 'required',
+            'approach'=> 'required',
+        ]);
+        DB::beginTransaction();
+        try{
+            // dd($this->application_id);
+            StartUp::updateOrcreate(
+                [ 'application_id'=> $this->application_id,],
+                [
+                'application_id'=> $this->application_id,
+                'business_idea' => $this->business_idea,
+                'product_service' => $this->product_service,
+                'technology' => $this->technology,
+                'approach' => $this->approach,
+                'mentor' => $this->mentor,
+                'incubator'=> $this->incubator,
+            ]);
+            DB::commit();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            dd($e);
             DB::rollback();
             $this->dispatchBrowserEvent('alert',
             ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);

@@ -40,7 +40,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-6">
-                <label class="col-form-label">email:</label>
+                <label class="col-form-label">Email:</label>
                 <input class="form-control" type="text" wire:model="email">
                 @error('email') <span class="error-msg">{{ $message }}</span> @enderror
             </div>

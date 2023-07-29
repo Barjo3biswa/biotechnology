@@ -55,4 +55,8 @@ class Application extends Model
     public function FinancialProjection(){
         return $this->hasMany(FinancialProjection::class,'application_id','id');
     }
+
+    public function startUps(){
+        return $this->hasOne(StartUp::class,'application_id','id');
+    }
 }

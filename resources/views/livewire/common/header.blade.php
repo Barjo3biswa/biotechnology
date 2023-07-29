@@ -10,8 +10,14 @@
                     @if($edit_load==null || $edit_load == 'AnnexureIB')
                         <li class="{{$step=="AnnexureIB"?"active":""}}"><a wire:click="formStep('AnnexureIB')">ANNEXURE I B</a></li>
                     @endif
-                    {{-- <li class="{{$step=="AnnexureIC"?"active":""}}"><a wire:click="formStep('AnnexureIC')">ANNEXURE I C</a></li>
-                    <li class="{{$step=="AnnexureID"?"active":""}}"><a wire:click="formStep('AnnexureID')">ANNEXURE I D</a></li> --}}
+                    @if($edit_load==null || $edit_load == 'AnnexureIC')
+                        <li class="{{$step=="AnnexureIC"?"active":""}}"><a wire:click="formStep('AnnexureIC')">ANNEXURE I C</a></li>
+                    @endif
+                    @if($edit_load==null || $edit_load == 'AnnexureID')
+                        <li class="{{$step=="AnnexureID"?"active":""}}"><a wire:click="formStep('AnnexureID')">ANNEXURE I D</a></li>
+                    @endif
+
+                   {{-- <li class="{{$step=="AnnexureID"?"active":""}}"><a wire:click="formStep('AnnexureID')">ANNEXURE I D</a></li> --}}
                     <li {{-- class="{{$step=="AnnexureID"?"active":""}}" --}}><a wire:click="applicationStep('!apply')">List All Application</a></li>
                 </ul>
             </nav>

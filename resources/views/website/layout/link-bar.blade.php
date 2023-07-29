@@ -149,7 +149,7 @@
                         </li>
                         <li class="{{Request::is('policy')? 'active' : ''}}">
                             {{-- <a href="{{route('policy')}}">The Policy</a> --}}
-                            <a href="{{asset("public/PDF/Biotech Policy.pdf")}}">The Policy</a>
+                            <a href="{{asset("PDF/Biotech Policy.pdf")}}">The Policy</a>
                         </li>
                         <li class="{{Request::is('trust')? 'active' : ''}}"><a href="{{route('trust')}}">Thrust Areas</a></li>
                         <li class="{{Request::is('apex-committee')||Request::is('exe-committee')? 'active' : ''}}">

@@ -1,4 +1,4 @@
-{{-- <div class="row">
+<div class="row">
     <div class="col-xs-12 col-sm-7 col-md-7"  wire:click="formSubStep('AnnexureIIncubators')">
         <div class="icon-box border-1px p-15 mb-30">
             <a class="icon pull-left sm-pull-none flip" href="#">
@@ -12,7 +12,7 @@
 </div>
 @if($sub_step=="AnnexureIIncubators")
     @include("livewire.common.incubator-details")
-@endif --}}
+@endif
 
 {{-- <div class="row">
     <div class="col-xs-12 col-sm-7 col-md-7"  wire:click="formSubStep('AnnexureIIncubatorProjection')">

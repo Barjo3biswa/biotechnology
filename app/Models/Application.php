@@ -59,4 +59,12 @@ class Application extends Model
     public function startUps(){
         return $this->hasOne(StartUp::class,'application_id','id');
     }
+
+    public function incubation(){
+        return $this->hasOne(IncubatorDetail::class,'application_id','id');
+    }
+
+    public function incubationSchedule(){
+        return $this->hasMany(IncubationDevelopmentSchedule::class,'application_id','id');
+    }
 }

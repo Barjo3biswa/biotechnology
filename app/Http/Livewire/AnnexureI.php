@@ -13,6 +13,9 @@ use App\Models\DirectorsPromoter;
 use App\Models\EntityType;
 use App\Models\FinancialProjection as ModelsFinancialProjection;
 use App\Models\FinancialProjectionMaster;
+use App\Models\IncubationDevelopmentSchedule;
+use App\Models\IncubationScheduleMaster;
+use App\Models\IncubatorDetail;
 use App\Models\MeansOfFinancing;
 use App\Models\ProjectCoast;
 use App\Models\RecruitmentSchedule;
@@ -65,6 +68,10 @@ class AnnexureI extends Component
     //Annexure IC
     public $business_idea, $product_service, $technology, $approach, $mentor, $incubator;
 
+    //Annexure ID
+    public $incubation_schedule, $incubation_data;
+    public $location_address, $area_office_space, $proff_of_land_incubator, $incubator_description, $detailed_project_report, $incubator_noc;
+
     public function render()
     {
         $this->entity_types=EntityType::get();
@@ -72,6 +79,7 @@ class AnnexureI extends Component
         $this->assistance_sought = AssistanceSoughtMaster::get();
         $this->recruitment_master = RecruitmentScheduleMaster::get();
         $this->financial_projection = FinancialProjectionMaster::get();
+        $this->incubation_schedule = IncubationScheduleMaster::get();
         return view('livewire.annexure-i');
     }
 
@@ -261,6 +269,28 @@ class AnnexureI extends Component
             $this->approach = $application->startUps->approach??null;
             $this->mentor = $application->startUps->mentor??null;
             $this->incubator = $application->startUps->incubator??null;
+        }
+
+        $this->location_address = $application->incubation->location_address??null;
+        $this->area_office_space = $application->incubation->area_office_space??null;
+        $this->proff_of_land_incubator = $application->incubation->proff_of_land_incubator??null;
+        $this->incubator_description = $application->incubation->incubator_description??null;
+        // $this->detailed_project_report = $application->incubation->detailed_project_report;
+        // $this->incubator_noc = $application->incubation->incubator_noc;
+
+        if($application->incubationSchedule){
+            // $this->incubation_data
+            foreach($application->incubationSchedule as $key=>$project){
+                $data=[
+                    'id' => $project->id,
+                    'year_i' => $project->year_i,
+                    'year_ii' => $project->year_ii,
+                    'year_iii' => $project->year_iii,
+                    'year_iv' => $project->year_iv,
+                    'year_v' => $project->year_v,
+                ];
+                $this->incubation_data[++$key] = $data;
+            }
         }
         // dd($this->business_idea);
         $this->app_list=0;
@@ -613,6 +643,49 @@ class AnnexureI extends Component
                 'mentor' => $this->mentor,
                 'incubator'=> $this->incubator,
             ]);
+            DB::commit();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            dd($e);
+            DB::rollback();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
+        }
+    }
+
+    public function saveIncubatorDetails(){
+        DB::beginTransaction();
+        try{
+
+            IncubatorDetail::updateOrcreate(
+                [
+                    'application_id'=> $this->application_id
+                ],
+                [
+                    'application_id'=> $this->application_id,
+                    'location_address'=> $this->location_address,
+                    'area_office_space'=> $this->area_office_space,
+                    'proff_of_land_incubator'=> $this->proff_of_land_incubator,
+                    'incubator_description'=> $this->incubator_description,
+                    'detailed_project_report'=> $this->storeDocs($this->detailed_project_report,'detailed_project_report'),
+                    'incubator_noc'=> $this->storeDocs($this->incubator_noc,'incubator_noc'),
+                ]);
+
+                foreach($this->incubation_data as $key=>$val){
+                    IncubationDevelopmentSchedule::updateOrcreate(
+                        [ 'id' => $val['id']??0 ],
+                        [
+                        'application_id'=>$this->application_id,
+                        'master_id' => $key,
+                        'year_i' => $val['year_i'],
+                        'year_ii' => $val['year_ii'],
+                        'year_iii' => $val['year_iii'],
+                        'year_iv' => $val['year_iv'],
+                        'year_v' => $val['year_v'],
+                    ]);
+                }
             DB::commit();
             $this->dispatchBrowserEvent('alert',
             ['type' => 'success',  'message' => 'Successfulll!']);

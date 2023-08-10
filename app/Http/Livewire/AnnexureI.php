@@ -543,14 +543,14 @@ class AnnexureI extends Component
                 RecruitmentSchedule::updateOrcreate(
                     [ 'id' => $schedule['id'] ],
                     [
-                    'application_id' =>	$this->application_id,
-                    'master_id' => $key,
-                    'year_i' => $schedule['year_i'],
-                    'year_ii' => $schedule['year_ii'],
-                    'year_iii' => $schedule['year_iii'],
-                    'year_iv' => $schedule['year_iv'],
-                    'year_v' => $schedule['year_v'],
-                ]);
+                        'application_id' =>	$this->application_id,
+                        'master_id' => $key,
+                        'year_i' => $schedule['year_i'],
+                        'year_ii' => $schedule['year_ii'],
+                        'year_iii' => $schedule['year_iii'],
+                        'year_iv' => $schedule['year_iv'],
+                        'year_v' => $schedule['year_v'],
+                    ]);
             }
             DB::commit();
             $this->dispatchBrowserEvent('alert',
@@ -569,18 +569,18 @@ class AnnexureI extends Component
             UndertakingExpansion::updateOrcreate(
                 [ 'application_id' => $this->application_id ],
                 [
-                'application_id' =>	$this->application_id,
-                'no_of_employee'=>$this->no_of_employee,
-                'annual_epf'=>$this->annual_epf,
-                'electricity_consupt'=>$this->electricity_consupt,
-                'current_area'=>$this->current_area,
-                'year_i'=>$this->year_i,
-                'year_ii'=>$this->year_ii,
-                'year_iii'=>$this->year_iii,
-                'vat_year_i'=>$this->vat_year_i,
-                'vat_year_ii'=>$this->vat_year_ii,
-                'vat_year_iii'=>$this->vat_year_iii,
-            ]);
+                    'application_id' =>	$this->application_id,
+                    'no_of_employee'=>$this->no_of_employee,
+                    'annual_epf'=>$this->annual_epf,
+                    'electricity_consupt'=>$this->electricity_consupt,
+                    'current_area'=>$this->current_area,
+                    'year_i'=>$this->year_i,
+                    'year_ii'=>$this->year_ii,
+                    'year_iii'=>$this->year_iii,
+                    'vat_year_i'=>$this->vat_year_i,
+                    'vat_year_ii'=>$this->vat_year_ii,
+                    'vat_year_iii'=>$this->vat_year_iii,
+                ]);
             DB::commit();
             $this->dispatchBrowserEvent('alert',
             ['type' => 'success',  'message' => 'Successfulll!']);
@@ -599,14 +599,14 @@ class AnnexureI extends Component
                 ModelsFinancialProjection::updateOrcreate(
                     [ 'id' => $val['id']??0 ],
                     [
-                    'application_id'=>$this->application_id,
-                    'master_id' => $key,
-                    'year_i' => $val['year_i'],
-                    'year_ii' => $val['year_ii'],
-                    'year_iii' => $val['year_iii'],
-                    'year_iv' => $val['year_iv'],
-                    'year_v' => $val['year_v'],
-                ]);
+                        'application_id'=>$this->application_id,
+                        'master_id' => $key,
+                        'year_i' => $val['year_i'],
+                        'year_ii' => $val['year_ii'],
+                        'year_iii' => $val['year_iii'],
+                        'year_iv' => $val['year_iv'],
+                        'year_v' => $val['year_v'],
+                    ]);
             }
 
             DB::commit();

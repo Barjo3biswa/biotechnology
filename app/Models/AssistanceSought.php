@@ -11,4 +11,8 @@ class AssistanceSought extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded=['id'];
+
+    public function master(){
+        return $this->hasOne(AssistanceSoughtMaster::class,'id','type_id',);
+    }
 }

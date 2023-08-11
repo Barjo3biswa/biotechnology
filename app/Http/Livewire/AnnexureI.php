@@ -440,15 +440,15 @@ class AnnexureI extends Component
             Application::where('id',$this->application_id)->update(['financing'=>1]);
             MeansOfFinancing::updateOrcreate(
                 [ 'application_id' => $this->application_id ],[
-                'application_id' => $this->application_id,
-                'tot_coast'   => $this->tot_coast,
-                'promoters_contribution' => $this->promoters_contribution,
-                'enterprise_contribution'  => $this->enterprise_contribution,
-                'expect_from_ass_gov'  => $this->expect_from_ass_gov,
-                'expect_from_oth_gov'  => $this->expect_from_oth_gov,
-                'loan_selection_letter' => $this->storeDocs($this->loan_selection_letter,'loan_selection_letter'),
-                'total' => $this->total,
-            ]);
+                    'application_id' => $this->application_id,
+                    'tot_coast'   => $this->tot_coast,
+                    'promoters_contribution' => $this->promoters_contribution,
+                    'enterprise_contribution'  => $this->enterprise_contribution,
+                    'expect_from_ass_gov'  => $this->expect_from_ass_gov,
+                    'expect_from_oth_gov'  => $this->expect_from_oth_gov,
+                    'loan_selection_letter' => $this->storeDocs($this->loan_selection_letter,'loan_selection_letter'),
+                    'total' => $this->total,
+                ]);
             DB::commit();
             $this->dispatchBrowserEvent('alert',
             ['type' => 'success',  'message' => 'Successfulll!']);

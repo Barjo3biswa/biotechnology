@@ -5,7 +5,7 @@
                 <div class="col-sm-4 col-md-6 col-md-offset-2-right1">
                     <div class="logo-div">
                         <a class="menuzord-brand pull-left flip" href="javascript:void(0)">
-                            <img src="./new-images/logo-removebg-preview.png" alt="" height="60"
+                            <img src="{{asset('new-images/logo-removebg-preview.png')}}" alt="" height="60"
                                 style="background: #fff;
                 width: 73px;
                 margin-right: 12px;">

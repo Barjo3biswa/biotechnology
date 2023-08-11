@@ -3,7 +3,7 @@
         @if($step=="AnnexureIA")
         <div class="form-group row">
             <div class="col-sm-3">
-                <label class="col-form-label">You are applyiong for</label>
+                <label class="col-form-label">You are applying for</label>
             </div>
             <div class="col-sm-2">
                 <input type="radio" wire:model="sub_step_name" value="BT Park">

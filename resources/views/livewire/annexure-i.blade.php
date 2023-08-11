@@ -26,6 +26,7 @@
                                     <td>{{$list->application_type}}</td>
                                     <td>{{$list->application_status}}</td>
                                     <td><input type="button" wire:click="editLoad({{$list->id}})" class="btn btn-success btn-xs" value="Edit"></td>
+                                    <td><a href="{{route('view-application',Crypt::encrypt($list->id))}}" class="btn btn-primary btn-xs" target="_blank">View</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

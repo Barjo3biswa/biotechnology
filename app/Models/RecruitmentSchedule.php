@@ -11,4 +11,8 @@ class RecruitmentSchedule extends Model
     use HasFactory;
     protected $guarded=['id'];
     use SoftDeletes;
+
+    public function master(){
+        return $this->hasOne(RecruitmentScheduleMaster::class,'id','master_id');
+    }
 }

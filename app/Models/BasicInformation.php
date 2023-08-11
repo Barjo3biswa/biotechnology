@@ -11,4 +11,8 @@ class BasicInformation extends Model
     use HasFactory;
     protected $guarded=["id"];
     use SoftDeletes;
+
+    public function EntityType(){
+        return $this->hasOne(EntityType::class,'id','entity_type');
+    }
 }

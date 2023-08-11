@@ -67,4 +67,8 @@ class Application extends Model
     public function incubationSchedule(){
         return $this->hasMany(IncubationDevelopmentSchedule::class,'application_id','id');
     }
+
+    public function applicationType(){
+        return $this->hasOne(applicationType::class,'name','application_type');
+    }
 }

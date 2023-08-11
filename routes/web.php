@@ -59,3 +59,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/form', [App\Http\Controllers\form\annexureController::class,'index'])->name('form')->middleware('auth');
+
+
+Route::get('/view-application/{id}', [App\Http\Controllers\form\annexureController::class,'viewApplication'])->name('view-application')->middleware('auth');

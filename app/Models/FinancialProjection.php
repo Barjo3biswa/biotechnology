@@ -11,4 +11,8 @@ class FinancialProjection extends Model
     use HasFactory;
     // use SoftDeletes;
     protected $guarded=['id'];
+
+    public function master(){
+        return $this->hasOne(FinancialProjectionMaster::class,'id','master_id');
+    }
 }

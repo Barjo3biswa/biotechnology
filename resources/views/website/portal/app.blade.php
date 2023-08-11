@@ -15,37 +15,25 @@
         Policy for the state of Assam</title>
 
     <!-- Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
-    <link href="css/animate.css" rel="stylesheet" type="text/css">
-    <link href="css/css-plugin-collections.css" rel="stylesheet" />
-    <!-- CSS | menuzord megamenu skins -->
-    <link id="menuzord-menu-skins" href="css/menuzord-skins/menuzord-strip.css" rel="stylesheet" />
-    <!-- CSS | Main style file -->
-    <!-- <link href="css/style-main.css" rel="stylesheet" type="text/css"> -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- CSS | Theme Color -->
-    <link href="css/colors/theme-skin-green.css" rel="stylesheet" type="text/css">
-    <!-- CSS | Preloader Styles -->
-    <link href="css/preloader.css" rel="stylesheet" type="text/css">
-    <!-- CSS | Custom Margin Padding Collection -->
-    <link href="css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
-    <!-- CSS | Responsive media queries -->
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
-    <!-- <link href="css/style.css" rel="stylesheet" type="text/css"> -->
-    <link rel="stylesheet" href="./css/font-awesome.min.css">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/jquery-ui.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/animate.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/css-plugin-collections.css')}}" rel="stylesheet" />
 
-    <!-- Revolution Slider 5.x CSS settings -->
-    <link href="js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" />
-    <link href="js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css" />
-    <link href="js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
-
-    <!-- external javascripts -->
-    <script src="js/jquery-2.2.0.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-plugin-collection.js"></script>
+    <link id="menuzord-menu-skins" href="{{asset('css/menuzord-skins/menuzord-strip.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link href="{{asset('css/colors/theme-skin-green.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/preloader.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/custom-bootstrap-margin-padding.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/responsive.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{asset('./css/font-awesome.min.css')}}">
+    <link href="{{asset('js/revolution-slider/css/settings.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('js/revolution-slider/css/layers.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('js/revolution-slider/css/navigation.css')}}" rel="stylesheet" type="text/css" />
+    <script src="{{asset('js/jquery-2.2.0.min.js')}}"></script>
+    <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/jquery-plugin-collection.js')}}"></script>
     @yield('css')
 
 </head>
@@ -59,15 +47,9 @@
         </div>
 
         @include('website.portal.header')
-
         @yield('content')
-
-        <!-- Footer -->
         @include('website.portal.footer')
-    <!-- end wrapper -->
-
-    <!-- Footer Scripts -->
-    <script src="js/custom.js"></script>
+    <script src="{{asset('js/custom.js')}}"></script>
 
 
 </body>

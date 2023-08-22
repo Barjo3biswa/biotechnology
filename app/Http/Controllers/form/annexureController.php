@@ -24,6 +24,7 @@ class annexureController extends Controller
             return redirect()->back()->with('error','somthing went wrong');
         }
         $application = Application::where('id',$decrypted)->first();
+        dd("ok");
         return view('show-form.show',compact('application'));
     }
 }

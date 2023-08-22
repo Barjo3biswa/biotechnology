@@ -16,6 +16,7 @@ class annexureController extends Controller
     }
 
     public function viewApplication($id){
+        dd("ok");
         try {
             $decrypted = Crypt::decrypt($id);
         } catch (\Exception $e) {

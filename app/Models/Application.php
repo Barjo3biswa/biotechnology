@@ -69,6 +69,6 @@ class Application extends Model
     }
 
     public function applicationType(){
-        return $this->hasOne(applicationType::class,'name','application_type');
+        return $this->hasOne(ApplicationType::class,'name','application_type');
     }
 }

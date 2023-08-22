@@ -11,4 +11,7 @@ class IncubationDevelopmentSchedule extends Model
     use HasFactory;
     protected $guarded = ['id'];
     use SoftDeletes;
+    public function master(){
+        return $this->hasOne(IncubationScheduleMaster::class,'id','master_id');
+    }
 }

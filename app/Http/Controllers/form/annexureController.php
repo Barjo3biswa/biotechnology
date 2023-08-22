@@ -16,17 +16,13 @@ class annexureController extends Controller
     }
 
     public function viewApplication($id){
-        // dd($id);
         try {
             $decrypted = Crypt::decrypt($id);
         } catch (\Exception $e) {
             dd($e);
             return redirect()->back()->with('error','somthing went wrong');
         }
-
         $application = Application::where('id',$decrypted)->first();
-        // dd($application->applicationType);
         return view('show-form.show',compact('application'));
-        // dd($application);
     }
 }

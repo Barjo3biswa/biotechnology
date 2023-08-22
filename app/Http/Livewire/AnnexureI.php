@@ -312,12 +312,16 @@ class AnnexureI extends Component
         try{
             DB::beginTransaction();
             if($this->application_id==null){
+                $count = Application::count()+1;
+                $application_no = 'ASBTC' . str_pad($count, 5, '0', STR_PAD_LEFT);
                 $this->application=Application::create([
                     'user_id' => Auth::user()->id,
+                    'application_no' => $application_no,
                     'application_type' => $this->step,
                     'basic_info' => 1,
                     'application_status' => 'created',
                     'sub_application_type' => $this->sub_step_name,
+
                 ]);
                 $this->application_id = $this->application->id;
             }
@@ -541,7 +545,7 @@ class AnnexureI extends Component
             ]);
             foreach($this->recruitment_schedule as $key=>$schedule){
                 RecruitmentSchedule::updateOrcreate(
-                    [ 'id' => $schedule['id'] ],
+                    [ 'id' => $schedule['id']??0 ],
                     [
                         'application_id' =>	$this->application_id,
                         'master_id' => $key,
@@ -557,6 +561,7 @@ class AnnexureI extends Component
             ['type' => 'success',  'message' => 'Successfulll!']);
             $this->sub_step=null;
         }catch(\Exception $e){
+            // dd($e);
             DB::rollback();
             $this->dispatchBrowserEvent('alert',
             ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);

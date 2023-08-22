@@ -1,6 +1,11 @@
 @extends('website.portal.app')
 @section('css')
     <style>
+        @media print {
+            .noPrint{
+                display:none;
+            }
+        }
         .form-container {
             max-width: 100%;
             margin: 0 auto;
@@ -65,14 +70,21 @@
             <div class="section-content">
                 <section>
                     <div class="col-md-12" style="width: 100%">
-                        <div class="row">
+                        {{-- <button onclick="printDiv('printableArea')" class="noPrint">
+                            Print Application
+                        </button> --}}
+                        <div class="row" id="printableArea">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center"><h3>The Assam Biotechnology Council</h3></th>
+                                        <th style="text-align: center">
+                                            <h3>The Assam Biotechnology Council</h3>
+                                        </th>
                                     </tr>
                                     <tr>
-                                        <th style="text-align: center"><h5>{{ $application->applicationType->description }}</h5></th>
+                                        <th style="text-align: center">
+                                            <h5>{{ $application->applicationType->description }}</h5>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,8 +122,22 @@
                                         <td>{{ $application->BasicInformation->pan_no }}</td>
                                     </tr>
                                     <tr>
+                                        <td><a href="{{ Storage::disk('public')->url($application->BasicInformation->certificate_of_incorporation) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> CERTIFICATE OF INCORPORATION</a></td>
+                                        <td><a href="{{ Storage::disk('public')->url($application->BasicInformation->pan_coppy) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> PAN CARD</a></td>
+                                        <td><a href="{{ Storage::disk('public')->url($application->BasicInformation->registration_coppy) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> GST REGISTRATION NO</a></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
                                         <th colspan=4>DIRECTORS/ PROMOTORS Details:</th>
                                     </tr>
+
+
                                     @foreach ($application->Directors as $director)
                                         <tr>
                                             <th>NAME:</th>
@@ -130,48 +156,172 @@
                                             <td>{{ $director->address }}</td>
                                         </tr>
                                     @endforeach
-
-                                    @if ($application->BTUnitDetails)
+                                </thead>
+                            </table>
+                            @if ($application->startUps)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
                                         <tr>
-                                            <th colspan=4><h3>Details of Eligible BT Unit:</h3></th>
+                                            <th colspan=4>
+                                                <h5>Brief description of Start-up in terms of following:</h5>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>BUSINESS IDEA :</th>
+                                            <td>{{ $application->startUps->business_idea }}</td>
+                                            <th>PRODUCT / SERVICE :</th>
+                                            <td>{{ $application->startUps->product_service }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>TECHNOLOGY:</th>
+                                            <td>{{ $application->startUps->technology }}</td>
+                                            <th>MANAGEMENT APPROACH FOR EFFLUENT DISCHARGE :</th>
+                                            <td>{{ $application->startUps->approach }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>MENTORS NAME, IF AVAILABLE :</th>
+                                            <td>{{ $application->startUps->mentor }}</td>
+                                            <th>INCUBATOR NAME AND ADDRESS, IF APPLICABLE :</th>
+                                            <td>{{ $application->startUps->incubator }}</td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->incubation)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
+
+                                        <tr>
+                                            <th colspan=6>
+                                                <h5>Details of Eligible Incubators:</h5>
+                                            </th>
+                                        </tr>
+
+                                        <tr>
+                                            <th>LOCATION ADDRESS :</th>
+                                            <td colspan=2>{{ $application->incubation->location_address }}</td>
+                                            <th>AREA OF THE LAND / OFFICE SPACE :</th>
+                                            <td colspan=2>{{ $application->incubation->area_office_space }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>PROOF OF LAND/OFFICE SPACE POSSESSION:</th>
+                                            <td colspan=2>{{ $application->incubation->proff_of_land_incubator }}</td>
+                                            <th>BRIEF DESCRIPTION OF THE PROJECT:</th>
+                                            <td colspan=2>{{ $application->incubation->incubator_description }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th>PROOF OF LAND/OFFICE SPACE POSSESSION:</th>
+                                            <td colspan=2>{{ $application->incubation->proff_of_land_incubator }}</td>
+                                            <th>BRIEF DESCRIPTION OF THE PROJECT:</th>
+                                            <td colspan=2>{{ $application->incubation->incubator_description }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="{{ Storage::disk('public')->url($application->incubation->detailed_project_report) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> DETAILED PROJECT REPORT</a></td>
+                                            <td colspan=5><a href="{{ Storage::disk('public')->url($application->incubation->incubator_noc) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> NOC</a></td>
+                                        </tr>
+
+                                        @foreach ($application->incubationSchedule as $sche)
+                                        <tr>
+                                            <th>{{$sche->master->name}}</th>
+                                            <td>{{$sche->year_i}}</td>
+                                            <td>{{$sche->year_ii}}</td>
+                                            <td>{{$sche->year_ii}}</td>
+                                            <td>{{$sche->year_iv}}</td>
+                                            <td>{{$sche->year_v}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->BTUnitDetails)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th colspan=6>
+                                                <h5>Details of Eligible BT Unit:</h5>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>NEW UNIT OR EXPANSION/DIVERSIFICATION: </th>
-                                            <td>{{$application->BTUnitDetails->unit_expansion}}</td>
+                                            <td>{{ $application->BTUnitDetails->unit_expansion }}</td>
                                             <th>LOCATION ADDRESS:</th>
-                                            <td>{{$application->BTUnitDetails->location_ib}}</td>
+                                            <td>{{ $application->BTUnitDetails->location_ib }}</td>
+                                            <th>AREA OF THE LAND / OFFICE SPACE:</th>
+                                            <td>{{ $application->BTUnitDetails->office_space }}</td>
                                         </tr>
                                         <tr>
-                                            <th>AREA OF THE LAND / OFFICE SPACE:: </th>
-                                            <td>{{$application->BTUnitDetails->office_space}}</td>
-                                            <th></th>
-                                            <th></th>
+                                            <td><a href="{{ Storage::disk('public')->url($application->BTUnitDetails->proff_of_land_doc) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> PROOF OF LAND</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ Storage::disk('public')->url($application->BTUnitDetails->noc_ib) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> NOC</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ Storage::disk('public')->url($application->BTUnitDetails->report_ib) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> PROJECT REPORT</a>
+                                            </td>
+                                            <td colspan="3">
+                                                <a href="{{ Storage::disk('public')->url($application->BTUnitDetails->description_ib) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> BRIEF DESCRIPTION OF THE PROJECT</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Year 1</th>
+                                            <th>Year 2</th>
+                                            <th>Year 3</th>
+                                            <th>Year 4</th>
+                                            <th width=10%>Year 5</th>
                                         </tr>
                                         @foreach ($application->RecruitmentSchedule as $sche)
                                             <tr>
-                                                <th>{{$sche->master->name}}</th>
-                                                <td colspan="3">{{$sche->year_i}}, {{$sche->year_ii}}, {{$sche->year_iii}}, {{$sche->year_iv}}, {{$sche->year_v}}</td>
+                                                <th>{{ $sche->master->name }}</th>
+                                                <td>{{ $sche->year_i }}</td>
+                                                <td>{{ $sche->year_ii }}</td>
+                                                <td>{{ $sche->year_iii }}</td>
+                                                <td>{{ $sche->year_iv }}</td>
+                                                <td>{{ $sche->year_v }}</td>
                                             </tr>
                                         @endforeach
-                                    @endif
-
-                                    @if ($application->UndertakingExpansion)
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->UndertakingExpansion)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
                                         <tr>
                                             <th colspan=4>
-                                                <h3>For Existing Units, undertaking Expansion/Diversification</h3></th>
+                                                <h5>For Existing Units, undertaking Expansion/Diversification</h5>
+                                            </th>
                                         </tr>
                                         <tr>
                                             {{-- {{dd($application->UndertakingExpansion)}} --}}
                                             <th>NUMBER OF EMPLOYEES IN EXISTING UNIT:</th>
                                             <td>{{ $application->UndertakingExpansion->no_of_employee }}</td>
                                             <th>ESTIMATED ANNUAL EPF CONTRIBUTION FOR CURRENT EMPLOYEES :</th>
-                                            <td>{{ $application->UndertakingExpansion->annual_epf??"NA" }}</td>
+                                            <td>{{ $application->UndertakingExpansion->annual_epf ?? 'NA' }}</td>
                                         </tr>
                                         <tr>
                                             <th>AVERAGE OF LAST ONE YEAR’S ELECTRICITY CONSUMPTION IN UNITS:</th>
                                             <td>{{ $application->UndertakingExpansion->electricity_consupt }}</td>
-                                            <th></th>
-                                            <td></td>
+                                            <th colspan=2>
+                                                <a href="{{ Storage::disk('public')->url($application->UndertakingExpansion->current_area) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> PROJECT REPORT</a>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>ANNUAL TURNOVER OF LAST THREE YEARS:</th>
@@ -185,24 +335,44 @@
                                             <td>Year II: {{ $application->UndertakingExpansion->vat_year_ii }}</td>
                                             <td>Year III: {{ $application->UndertakingExpansion->vat_year_iii }}</td>
                                         </tr>
-                                    @endif
-
-                                    @if ($application->FinancialProjection)
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->FinancialProjection->count() > 0)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
                                         <tr>
-                                            <th colspan=4><h3>Financial Projections of the Project (in Rs.)</h3></th>
+                                            <th colspan=6>
+                                                <h5>Financial Projections of the Project (in Rs.)</h5>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>SL</th>
+                                            <th>Year 1</th>
+                                            <th>Year 2</th>
+                                            <th>Year 3</th>
+                                            <th>Year 4</th>
+                                            <th>Year 5</th>
                                         </tr>
                                         @foreach ($application->FinancialProjection as $project)
-                                        {{-- {{dd($project->master->name)}} --}}
                                             <tr>
-                                                <th>{{$project->master->name??"NA"}}</th>
-                                                <td colspan="3">{{$project->year_i}}, {{$project->year_ii}}, {{$project->year_iii}}, {{$project->year_iv}}, {{$project->year_v}}</td>
+                                                <th>{{ $project->master->name ?? 'NA' }}</th>
+                                                <td>{{ $project->year_i }}</td>
+                                                <td>{{ $project->year_ii }}</td>
+                                                <td>{{ $project->year_iii }}</td>
+                                                <td>{{ $project->year_iv }}</td>
+                                                <td>{{ $project->year_v }}</td>
                                             </tr>
                                         @endforeach
-                                    @endif
-
-                                    @if ($application->DetailsBTPark)
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->DetailsBTPark)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
                                         <tr>
-                                            <th colspan=4><h3>Details of Proposed BT Park / R&D Institute / Finishing School:</h3>
+                                            <th colspan=4>
+                                                <h5>Details of Proposed BT Park / R&D Institute / Finishing School:</h5>
                                             </th>
                                         </tr>
                                         <tr>
@@ -215,11 +385,29 @@
                                             <th>DESCRIPTION:</th>
                                             <th colspan="3">{{ $application->DetailsBTPark->description }}</th>
                                         </tr>
-                                    @endif
-
-                                    @if ($application->ProjectCoast)
                                         <tr>
-                                            <th colspan=4><h3>Project Cost:</h3></th>
+                                            <td><a href="{{ Storage::disk('public')->url($application->DetailsBTPark->proff_of_land) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> PROFF OF LAND</a></td>
+                                            <td><a href="{{ Storage::disk('public')->url($application->DetailsBTPark->project_report) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> PROJECT REPORT</a></td>
+                                            <td><a href="{{ Storage::disk('public')->url($application->DetailsBTPark->noc_certificate) }}"
+                                                    class="btn btn" target="_blank"><i class="fa fa-download"
+                                                        aria-hidden="true"></i> NOC</a></td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->ProjectCoast->count() > 0)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
+
+                                        <tr>
+                                            <th colspan=4>
+                                                <h5>Project Cost:</h5>
+                                            </th>
                                         </tr>
                                         @foreach ($application->ProjectCoast as $coast)
                                             <tr>
@@ -229,11 +417,17 @@
                                                 <td>{{ $coast->coast }}</td>
                                             </tr>
                                         @endforeach
-                                    @endif
 
-                                    @if ($application->MeansOfFinancing)
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->MeansOfFinancing)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
                                         <tr>
-                                            <th colspan=4><h3>Means of Financing the Project (in Rs.):<h3></th>
+                                            <th colspan=4>
+                                                <h5>Means of Financing the Project (in Rs.):<h5>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>TOTAL PROJECT COST:</th>
@@ -253,11 +447,21 @@
                                             <th>Total:</th>
                                             <td>{{ $application->MeansOfFinancing->total }}</td>
                                         </tr>
-                                    @endif
-
-                                    @if ($application->AssistanceSought)
                                         <tr>
-                                            <th colspan=4><h3>Assistance Sought under the scheme:</h3></th>
+                                            <th><a href="{{ Storage::disk('public')->url($application->MeansOfFinancing->loan_selection_letter) }}"
+                                                class="btn btn" target="_blank"><i class="fa fa-download"
+                                                    aria-hidden="true"></i> DEBT/BORROWING (LOAN SANCTION LETTER)</a></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            @endif
+                            @if ($application->AssistanceSought->count() > 0)
+                                <table class="table table-responsive table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th colspan=4>
+                                                <h5>Assistance Sought under the scheme:</h5>
+                                            </th>
                                         </tr>
                                         @foreach ($application->AssistanceSought as $sought)
                                             <tr>
@@ -266,11 +470,16 @@
                                                 <td colspan=2>{{ $sought->remarks }}</td>
                                             </tr>
                                         @endforeach
-                                    @endif
-
+                                    </thead>
+                                </table>
+                            @endif
+                            <table class="table table-responsive table-bordered">
+                                <thead>
                                     @if ($application->BankACDetails)
                                         <tr>
-                                            <th colspan=4><h3>Bank Account Details:</h3></th>
+                                            <th colspan=4>
+                                                <h5>Bank Account Details:</h5>
+                                            </th>
                                         </tr>
                                         <tr>
                                             <th>NAME OF ACCOUNT HOLDER:</th>
@@ -293,9 +502,6 @@
                                     @endif
 
                                 </thead>
-                                <tbody>
-
-                                </tbody>
                             </table><br />
                         </div>
                     </div>
@@ -305,4 +511,13 @@
     </section>
 @endsection
 @section('js')
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
 @endsection

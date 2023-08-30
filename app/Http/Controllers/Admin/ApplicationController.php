@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Crypt;
 class ApplicationController extends Controller
 {
     public function index(){
+        // dd("ok");
         // dd(Auth::user()->name);
         return view("admin.index");
         // dd("ok");

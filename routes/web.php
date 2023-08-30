@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,3 +63,13 @@ Route::get('/form', [App\Http\Controllers\form\annexureController::class,'index'
 
 
 Route::get('/view-application/{id}', [App\Http\Controllers\form\annexureController::class,'viewApplication'])->name('view-application')->middleware('auth');
+
+
+
+////Admin
+Route::get('/admin',[LoginController::class,'showAdminLoginForm'])->name('admin.login-view');
+Route::post('/admin',[LoginController::class,'adminLogin'])->name('admin.login');
+Route::get('/dashboard', [App\Http\Controllers\Admin\ApplicationController::class,'index'])->name('dashboard')->middleware('auth:admin');
+Route::get('/applications/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'applications'])->name('applications')->middleware('auth:admin');
+Route::get('/view-application-admin/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'viewApplication'])->name('view-application-admin')->middleware('auth:admin');
+Route::get('/change-status/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'changeStatus'])->name('change-status')->middleware('auth:admin');

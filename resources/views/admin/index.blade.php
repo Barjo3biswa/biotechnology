@@ -11,13 +11,13 @@
                         <div class="card bg-c-blue order-card">
                             <div class="card-block">
                                 <h6 class="m-b-20">Annexure IA</h6>
-                                <h2 class="text-right"><i class="ti-reload f-left"></i><span>{{getDashboardCount("AnnexureIA",null)}}</span>
+                                <h2 class="text-right"><i class="ti-reload f-left"></i><span>{{app\Helpers\helpers::getDashboardCount("AnnexureIA",null)}}</span>
                                 </h2>
-                                <p class="m-b-0">Viewed<span class="f-right">{{getDashboardCount("AnnexureIA","viewed")}}</span></p>
+                                {{-- <p class="m-b-0">Viewed<span class="f-right">{{getDashboardCount("AnnexureIA","viewed")}}</span></p> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-xl-3">
+                    {{-- <div class="col-md-6 col-xl-3">
                         <div class="card bg-c-green order-card">
                             <div class="card-block">
                                 <h6 class="m-b-20">Annexure IB</h6>
@@ -45,7 +45,7 @@
                                 <p class="m-b-0">Viewed<span class="f-right">{{getDashboardCount("AnnexureID","viewed")}}</span></p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

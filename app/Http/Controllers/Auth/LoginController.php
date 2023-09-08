@@ -59,7 +59,7 @@ class LoginController extends Controller
         if (Auth::guard('admin')->attempt( $request->only($this->username(), 'password'), false) ){
             // dd("ok");
             // return redirect()->intended('/dashboard');
-            return redirect()->route('/dashboard');
+            return redirect()->route('dashboard');
         }
 
         return back()->withInput($request->only('email', 'remember'));

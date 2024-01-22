@@ -16,7 +16,7 @@
                 </div>
             </div>
             <a href="index.html">
-                Assam Biotech Counsil
+                Assam Biotech Council
                 {{-- <img class="img-fluid" src="{{ asset('assets') }}/images/logo.png" alt="Theme-Logo" /> --}}
             </a>
             <a class="mobile-options">

@@ -21,7 +21,7 @@
                     <a href="{{route('applications',Crypt::encrypt('AnnexureIA'))}}">
                         <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                         <span class="pcoded-mtext"
-                            data-i18n="nav.basic-components.alert">Annexure I A</span>
+                            data-i18n="nav.basic-components.alert">Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                     <a href="{{route('applications',Crypt::encrypt('AnnexureIB'))}}">
                         <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                         <span class="pcoded-mtext"
-                            data-i18n="nav.basic-components.breadcrumbs">Annexure I B</span>
+                            data-i18n="nav.basic-components.breadcrumbs">Application Form for AVAILING ASSISTANCE FOR BT UNIT</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
@@ -37,7 +37,7 @@
                     <a href="{{route('applications',Crypt::encrypt('AnnexureIC'))}}">
                         <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                         <span class="pcoded-mtext"
-                            data-i18n="nav.basic-components.alert">Annexure I C</span>
+                            data-i18n="nav.basic-components.alert">Application Form for AVAILING ASSISTANCE FOR START UPS</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
@@ -45,7 +45,7 @@
                     <a href="{{route('applications',Crypt::encrypt('AnnexureID'))}}">
                         <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                         <span class="pcoded-mtext"
-                            data-i18n="nav.basic-components.alert">Annexure I D</span>
+                            data-i18n="nav.basic-components.alert">Application Form for Availing Assistance for BT Incubators/Incubation Centers</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>

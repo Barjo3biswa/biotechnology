@@ -4,7 +4,18 @@
     <div class="page-wrapper">
         <div class="card">
             <div class="card-header">
-                <h5>{{$decrypted}}</h5>
+                <h5>
+                    @if ($decrypted == "AnnexureIA")
+                        Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School
+                    @elseif ($decrypted == "AnnexureIB")
+                        Application Form for AVAILING ASSISTANCE FOR BT UNIT
+                    @elseif ($decrypted == "AnnexureIC")
+                        Application Form for AVAILING ASSISTANCE FOR START UPS
+                    @elseif ($decrypted == "AnnexureID")
+                        Application Form for Availing Assistance for BT Incubators/Incubation Centers
+                    @endif
+                    {{-- {{$decrypted}} --}}
+                </h5>
             </div>
             <div class="card-block table-border-style">
                 <div class="table-responsive">

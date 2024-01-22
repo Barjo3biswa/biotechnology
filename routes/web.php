@@ -55,6 +55,7 @@ Route::get('/screen-reader', function () {
     return view('website.pages.screen-reader');
 })->name('screen-reader');
 
+// Route::post('/login/{id}',[LoginController::class,'login'])->name('login');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

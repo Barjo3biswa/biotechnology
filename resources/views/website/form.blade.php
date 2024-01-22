@@ -53,7 +53,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 @endsection
 @section('content')
-    <livewire:annexure-i />
+        <livewire:annexure-i :type="$type" />
+    {{-- <livewire:annexure-i /> --}}
 @endsection
 @section('js')
 @livewireScripts

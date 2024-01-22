@@ -72,8 +72,17 @@ class AnnexureI extends Component
     public $incubation_schedule, $incubation_data;
     public $location_address, $area_office_space, $proff_of_land_incubator, $incubator_description, $detailed_project_report, $incubator_noc;
 
+    public $type;
+
+    // This method will be called when the Livewire component is initialized
+    public function mount($type)
+    {
+        $this->type = $type;
+    }
+
     public function render()
     {
+
         $this->entity_types=EntityType::get();
         $this->application_list=Application::where('user_id',Auth::user()->id)->get();
         $this->assistance_sought = AssistanceSoughtMaster::get();
@@ -85,7 +94,17 @@ class AnnexureI extends Component
 
     public function applicationStep($status){
         if($status=='apply'){
-            $this->edit_load = null;
+            //$this->edit_load = "AnnexureIA";
+            $this->edit_load = $this->type;
+            if($this->edit_load=="AnnexureIA"){
+                $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
+            }elseif($this->edit_load=="AnnexureIB"){
+                $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR BT UNIT";
+            }elseif($this->edit_load=="AnnexureIC"){
+                $this->form_name ="APPLICATION FORM FOR AVAILING ASSISTANCE FOR START UPS";
+            }elseif($this->edit_load=="AnnexureID"){
+                $this->form_name ="Application Form for Availing Assistance for BT Incubators/Incubation Centers";
+            }
             $this->sub_step=null;
             $this->app_list=0;
         }else{

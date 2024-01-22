@@ -163,10 +163,10 @@
                         <li class="{{Request::is('form')||Request::is('exe-committee')? 'active' : ''}}">
                             <a href="#">Apply Here</a>
                             <ul class="dropdown">
-                                <li><a href="{{route('form')}}" target="_blank">Application for Availing Assistance for START UPS</a></li>
-                                <li><a href="{{route('form')}}" target="_blank">Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School</a></li>
-                                <li><a href="{{route('form')}}" target="_blank">Application Form for Availing Assistance for BT Incubators/Incubation Centers</a></li>
-                                <li><a href="{{route('form')}}" target="_blank">Application Form for Availing Assistance for BT Unit </a></li>
+                                <li><a href="{{route('form',['application_type' => Crypt::encrypt('AnnexureIC')])}}" target="_blank">Application for Availing Assistance for START UPS</a></li>
+                                <li><a href="{{route('form',['application_type' => Crypt::encrypt('AnnexureIA')])}}" target="_blank">Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School</a></li>
+                                <li><a href="{{route('form',['application_type' => Crypt::encrypt('AnnexureID')])}}" target="_blank">Application Form for Availing Assistance for BT Incubators/Incubation Centers</a></li>
+                                <li><a href="{{route('form',['application_type' => Crypt::encrypt('AnnexureIB')])}}" target="_blank">Application Form for Availing Assistance for BT Unit </a></li>
                             </ul>
                         </li>
                     </ul>

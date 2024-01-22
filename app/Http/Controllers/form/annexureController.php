@@ -10,9 +10,11 @@ use Illuminate\Support\Facades\Crypt;
 class annexureController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return view('website.form');
+        // dd($request->all());
+        $type = Crypt::decrypt($request->application_type);
+        return view('website.form',compact('type'));
     }
 
     public function viewApplication($id){

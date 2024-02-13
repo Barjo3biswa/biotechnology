@@ -19,7 +19,7 @@
             </div>
             <div class="card-block table-border-style">
                 <div class="table-responsive">
-                    <table class="table table-hover">
+                    <table class="table table-hover" id="dtExample">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -48,6 +48,10 @@
                                             <span class="label label-success">created</span>
                                         @elseif($app->application_status=="viewed")
                                             <span class="label label-warning">viewed</span>
+                                        @elseif($app->application_status=="Accepted")
+                                            <span class="label label-success">Accepted</span>
+                                        @elseif($app->application_status=="Rejected")
+                                            <span class="label label-danger">Rejected</span>
                                         @endif
                                     </th>
                                     <th>
@@ -67,4 +71,23 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+<script>
+$(document).ready(function() {
+    $('#dtExample').DataTable({
+        "pageLength": 100 // Set the pagination length to 100 per page
+    });
+});
+
+// $(document).ready(function() {
+//     $('#dtExample').DataTable( {
+//         dom: 'Bfrtip',
+//         buttons: [
+//             'copy', 'csv', 'excel', 'pdf', 'print'
+//         ]
+//     } );
+// } );
+</script>
+
 @endsection

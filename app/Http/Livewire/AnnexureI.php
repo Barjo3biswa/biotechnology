@@ -95,6 +95,7 @@ class AnnexureI extends Component
     public function applicationStep($status){
         if($status=='apply'){
             //$this->edit_load = "AnnexureIA";
+            // dd($status);
             $this->edit_load = $this->type;
             if($this->edit_load=="AnnexureIA"){
                 $this->form_name ="Application Form for Availing Assistance for BT Park/ R&D Institute / Finishing School";
@@ -107,6 +108,7 @@ class AnnexureI extends Component
             }
             $this->sub_step=null;
             $this->app_list=0;
+            $this->step=$this->type;
         }else{
             $this->app_list=1;
         }

@@ -46,7 +46,38 @@ class ApplicationController extends Controller
             dd("ok");
         }
         $application=Application::where('id',$decrypted)->first();
+        if(in_array($application->application_status,['Accepted','Rejected'])){
+            return redirect()->back()->with('error','Already '.$application->application_status);
+        }
         $application->update(['application_status'=>'viewed']);
         return redirect()->route('applications',Crypt::encrypt($application->application_type))->with('success','Successfully Changed');
+    }
+
+    public function acceptApplication($id){
+        try {
+            $decrypted = Crypt::decrypt($id);
+        } catch (\Exception $e) {
+            dd("ok");
+        }
+        $application=Application::where('id',$decrypted)->first();
+        if(in_array($application->application_status,['Accepted','Rejected'])){
+            return redirect()->back()->with('error','Already '.$application->application_status);
+        }
+        $application->update(['application_status'=>'Accepted']);
+        return redirect()->route('applications',Crypt::encrypt($application->application_type))->with('success','Successfully Accepted');
+    }
+
+    public function rejectAppliocation($id){
+        try {
+            $decrypted = Crypt::decrypt($id);
+        } catch (\Exception $e) {
+            dd("ok");
+        }
+        $application=Application::where('id',$decrypted)->first();
+        if(in_array($application->application_status,['Accepted','Rejected'])){
+            return redirect()->back()->with('error','Already '.$application->application_status);
+        }
+        $application->update(['application_status'=>'Rejected']);
+        return redirect()->route('applications',Crypt::encrypt($application->application_type))->with('success','Successfully Rejected');
     }
 }

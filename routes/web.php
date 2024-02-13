@@ -74,3 +74,6 @@ Route::get('/dashboard', [App\Http\Controllers\Admin\ApplicationController::clas
 Route::get('/applications/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'applications'])->name('applications')->middleware('auth:admin');
 Route::get('/view-application-admin/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'viewApplication'])->name('view-application-admin')->middleware('auth:admin');
 Route::get('/change-status/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'changeStatus'])->name('change-status')->middleware('auth:admin');
+
+Route::get('/accept-application/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'acceptApplication'])->name('accept-application')->middleware('auth:admin');
+Route::get('/reject-application/{id}', [App\Http\Controllers\Admin\ApplicationController::class,'rejectAppliocation'])->name('reject-application')->middleware('auth:admin');

@@ -31,6 +31,16 @@
 .menuzord-brand img {
     max-height: 55px;
 }
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
     </style>
 </head>
 <body>
@@ -43,7 +53,7 @@
                 <div class="col-sm-4 col-md-6 col-md-offset-2-right1">
                     <div class="logo-div">
                         <a class="menuzord-brand pull-left flip" href="javascript:void(0)" style="text-decoration: none">
-                            <img src="./new-images/logo-removebg-preview.png" alt="" height="60" style="background: #fff;
+                            <img src="{{asset('/')}}new-images/logo-removebg-preview.png" alt="" height="60" style="background: #fff;
                             width: 73px;
                             margin-right: 12px;">
                             <h3 style="color: #5d9b46;">The Assam Biotechnology Council</h3>

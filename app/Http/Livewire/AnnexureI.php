@@ -22,6 +22,8 @@ use App\Models\RecruitmentSchedule;
 use App\Models\RecruitmentScheduleMaster;
 use App\Models\StartUp;
 use App\Models\UndertakingExpansion;
+use App\Models\User;
+use App\Notifications\sendCompletedMail;
 use Database\Seeders\FinancialProjection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -156,6 +158,17 @@ class AnnexureI extends Component
         }
     }
 
+    public function finalSubmit($id){
+        $application=Application::where('id',$id)->update(['application_status'=>'completed']);
+        // $token = str_random(60);
+        // User::where('email',$request->email)->update([
+        //     "token" => $token
+        // ]);
+        $user_id = Auth::User()->id;
+        $user = User::where('id',$user_id)->first();
+        // dd($user);
+        $user->notify(new sendCompletedMail("A new user has visited on your application."));
+    }
     public $edit_load=null;
     public function editLoad($id){
         $application=Application::where('id',$id)->first();
@@ -333,6 +346,7 @@ class AnnexureI extends Component
         try{
             DB::beginTransaction();
             if($this->application_id==null){
+                $application_step = json_encode(['basic_info']);
                 $count = Application::count()+1;
                 $application_no = 'ASBTC' . str_pad($count, 5, '0', STR_PAD_LEFT);
                 $this->application=Application::create([
@@ -342,6 +356,7 @@ class AnnexureI extends Component
                     'basic_info' => 1,
                     'application_status' => 'created',
                     'sub_application_type' => $this->sub_step_name,
+                    'application_step' => $application_step,
 
                 ]);
                 $this->application_id = $this->application->id;
@@ -391,7 +406,14 @@ class AnnexureI extends Component
 
     }
 
+    public function generateApplicationStep($id, $new_step){
+       $prev_steps = Application::where('id',$id)->first()->application_step;
+       $array = json_decode($prev_steps);
+       array_push($array, $new_step);
+       return json_encode(array_unique($array));
+    }
     public function saveDetailsBTPark(){
+
         $this->validate([
             'location' =>'required',
             'area_of_land' =>'required',
@@ -403,6 +425,8 @@ class AnnexureI extends Component
 
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'bt_park_details');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['details'=>1]);
             BtParkDetail::updateOrcreate(
                 [ 'application_id' => $this->application_id ],[
@@ -428,6 +452,8 @@ class AnnexureI extends Component
     public function saveProjectCoast(){
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'project_coast');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['coast'=>1]);
             foreach($this->project_coast as $key=>$pc){
                 ProjectCoast::updateOrcreate(
@@ -462,6 +488,8 @@ class AnnexureI extends Component
         ]);
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'financing');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['financing'=>1]);
             MeansOfFinancing::updateOrcreate(
                 [ 'application_id' => $this->application_id ],[
@@ -497,6 +525,9 @@ class AnnexureI extends Component
 
         DB::beginTransaction();
         try{
+
+            $test = $this->generateApplicationStep($this->application_id, 'bank_details');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['bank'=>1]);
             BankAccountDetail::updateOrcreate(
                 [ 'application_id' => $this->application_id ],[
@@ -521,6 +552,8 @@ class AnnexureI extends Component
     public function saveAssistanceSought(){
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'assistance_sought');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['scheme'=>1]);
             foreach($this->assistance_sought_values as $id=>$sought){
                 AssistanceSought::updateOrcreate(
@@ -552,6 +585,8 @@ class AnnexureI extends Component
     public function saveDetailsBTParkIB(){
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'bt_park_details');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             BTUnitDetails::updateOrcreate(
                 [ 'application_id' => $this->application_id ],
                 [
@@ -592,6 +627,8 @@ class AnnexureI extends Component
     public function saveDetailsBTUndertakingIB(){
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'bt_park_undertaking');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             UndertakingExpansion::updateOrcreate(
                 [ 'application_id' => $this->application_id ],
                 [
@@ -621,6 +658,8 @@ class AnnexureI extends Component
     public function saveFinancialProjection(){
         DB::beginTransaction();
         try{
+            $test = $this->generateApplicationStep($this->application_id, 'financial_projection');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             foreach($this->financial_projections as $key=>$val){
                 ModelsFinancialProjection::updateOrcreate(
                     [ 'id' => $val['id']??0 ],
@@ -657,7 +696,8 @@ class AnnexureI extends Component
         ]);
         DB::beginTransaction();
         try{
-            // dd($this->application_id);
+            $test = $this->generateApplicationStep($this->application_id, 'start_up');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             StartUp::updateOrcreate(
                 [ 'application_id'=> $this->application_id,],
                 [
@@ -684,7 +724,8 @@ class AnnexureI extends Component
     public function saveIncubatorDetails(){
         DB::beginTransaction();
         try{
-
+            $test = $this->generateApplicationStep($this->application_id, 'incubator');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             IncubatorDetail::updateOrcreate(
                 [
                     'application_id'=> $this->application_id

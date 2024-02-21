@@ -25,8 +25,27 @@
                                     <td>{{$list->application_no??"Application No Will be Generate Soon"}}</td>
                                     <td>{{$list->application_type}}</td>
                                     <td>{{$list->application_status}}</td>
-                                    <td><input type="button" wire:click="editLoad({{$list->id}})" class="btn btn-success btn-xs" value="Edit"></td>
-                                    <td><a href="{{route('view-application',Crypt::encrypt($list->id))}}" class="btn btn-primary btn-xs" target="_blank">View</a></td>
+                                    @php
+                                        $array_one = json_decode($list->application_step, true);
+                                        $array_two = json_decode($list->applicationType->application_steps, true);
+                                        // dump($array_one);
+                                        // dump($array_two);
+                                        $flag = 0;
+                                        if($array_one && $array_two){
+                                            if (sort($array_one) === sort($array_two)) {
+                                                $flag = 1;
+                                            }
+                                        }
+
+                                    @endphp
+                                    <td>
+                                    @if($list->application_status == "created")
+                                        <input type="button" wire:click="editLoad({{$list->id}})" class="btn btn-success btn-xs" value="Edit">
+                                    @endif
+                                    @if($flag==1 && $list->application_status == "created")
+                                        <input type="button" wire:click="finalSubmit({{$list->id}})" class="btn btn-success btn-xs" value="Final Submit">
+                                    @endif
+                                    <a href="{{route('view-application',Crypt::encrypt($list->id))}}" class="btn btn-primary btn-xs" target="_blank">View</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

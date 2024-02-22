@@ -12,9 +12,15 @@ class annexureController extends Controller
 
     public function index(Request $request)
     {
+        try{
+            $type = Crypt::decrypt($request->application_type);
+            return view('website.form',compact('type'));
+        }catch(\Exception $e){
+            return redirect()->route('home-page');
+            // dd("successfull");
+        }
         // dd($request->all());
-        $type = Crypt::decrypt($request->application_type);
-        return view('website.form',compact('type'));
+
     }
 
     public function viewApplication($id){

@@ -21,6 +21,7 @@ use App\Models\ProjectCoast;
 use App\Models\RecruitmentSchedule;
 use App\Models\RecruitmentScheduleMaster;
 use App\Models\StartUp;
+use App\Models\StartUpAssistanceSought;
 use App\Models\UndertakingExpansion;
 use App\Models\User;
 use App\Notifications\sendCompletedMail;
@@ -59,7 +60,7 @@ class AnnexureI extends Component
     public $ac_hol_name, $bank_name, $account_number, $ifsc_code, $rtgs_dts;
 
     //Assistance sought
-    public $assistance_sought,$assistance_sought_values;
+    public $assistance_sought, $assistance_sought_values, $assistance_sought_sp_values;
 
     //Annexure IB
     public $recruitment_master, $recruitment_schedule, $financial_projection;
@@ -230,6 +231,18 @@ class AnnexureI extends Component
             ];
             $this->assistance_sought_values[++$key] = $data;
         }
+
+        foreach($application->AssistanceSoughtii as $key=>$sought){
+            $data=[
+                'id'     => $sought->id,
+                'expandi' => $sought->expandi,
+                'eligi_assis'=> $sought->eligi_assis,
+                'claimed_assis' => $sought->claimed_assis,
+                'remarks'=> $sought->remarks,
+            ];
+            $this->assistance_sought_sp_values[++$key] = $data;
+        }
+
         $this->location = $application->DetailsBTPark->location??Null;
         $this->area_of_land = $application->DetailsBTPark->area_of_land??Null;
         $this->proff_of_land = $application->DetailsBTPark->proff_of_land??Null;
@@ -576,6 +589,39 @@ class AnnexureI extends Component
             ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
         }
     }
+
+    public function saveAssistanceSoughtStartUP(){
+        DB::beginTransaction();
+        try{
+            $test = $this->generateApplicationStep($this->application_id, 'assistance_sought');
+            Application::where('id',$this->application_id)->update(['application_step'=>$test]);
+            Application::where('id',$this->application_id)->update(['scheme'=>1]);
+            foreach($this->assistance_sought_sp_values as $id=>$sought){
+                StartUpAssistanceSought::updateOrcreate(
+                    [ 'id' => $sought['id']??0 ],[
+                    'application_id' =>	$this->application_id,
+                    'type_id' => $id,
+                    'expandi' => $sought['expandi'],
+                    'eligi_assis' => $sought['eligi_assis'],
+                    'claimed_assis' => $sought['claimed_assis'],
+                    'remarks' => $sought['remarks'],
+                    'status'  =>1,
+                ]);
+            }
+            $this->project_coast=null;
+            DB::commit();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'success',  'message' => 'Successfulll!']);
+            $this->sub_step=null;
+        }catch(\Exception $e){
+            dd($e);
+            DB::rollback();
+            $this->dispatchBrowserEvent('alert',
+            ['type' => 'error',  'message' => 'Something Went Wrong, please try again...']);
+        }
+    }
+
+
     public function storeDocs($file,$file_name)
     {
         $file_name = date('YmdHis') . "_" . rand(4512, 6859) . $file_name .'.'. $file->getClientOriginalExtension();

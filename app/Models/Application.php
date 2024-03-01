@@ -39,6 +39,9 @@ class Application extends Model
     public function AssistanceSought(){
         return $this->hasMany(AssistanceSought::class,'application_id','id');
     }
+     public function AssistanceSoughtii(){
+        return $this->hasMany(StartUpAssistanceSought::class,'application_id','id');
+    }
 
     public function BTUnitDetails(){
         return $this->hasOne(BTUnitDetails::class,'application_id','id');

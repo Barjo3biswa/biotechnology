@@ -141,7 +141,11 @@
                                         </div>
                                     </div>
                                     @if($sub_step=="AnnexureIAassistance")
-                                        @include("livewire.common.assistance-sought")
+                                        @if ($step=="AnnexureIC")
+                                            @include("livewire.common.form.assistance-sought-start-up")
+                                        @else
+                                            @include("livewire.common.assistance-sought")
+                                        @endif
                                     @endif
                                     <div class="row">
                                         <div class="col-xs-12 col-sm-7 col-md-7" wire:click="formSubStep('AnnexureIABankDetails')">

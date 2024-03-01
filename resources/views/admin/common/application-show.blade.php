@@ -392,6 +392,29 @@
 
         </table>
     @endif
+
+    @if ($application->AssistanceSoughtii->count() > 0)
+        <table class="table table-bordered">
+
+                <tr>
+                    <th colspan=5 style="white-space: nowrap !important;" >
+                        <h5>Assistance Sought under the scheme:</h5>
+                    </th>
+                </tr>
+                @foreach ($application->AssistanceSoughtii as $sought)
+                    <tr>
+                        <th>{{ $sought->master->typeii }}</th>
+                        <td>{{ $sought->expandi }}</td>
+                        <td>{{ $sought->eligi_assis }}</td>
+                        <td>{{ $sought->claimed_assis }}</td>
+                        <td colspan=2>{{ $sought->remarks }}</td>
+                    </tr>
+                @endforeach
+
+        </table>
+    @endif
+
+
     <table class="table table-bordered">
 
             @if ($application->BankACDetails)

@@ -593,11 +593,12 @@ class AnnexureI extends Component
     public function saveAssistanceSoughtStartUP(){
         DB::beginTransaction();
         try{
+            dd("ok");
             $test = $this->generateApplicationStep($this->application_id, 'assistance_sought');
             Application::where('id',$this->application_id)->update(['application_step'=>$test]);
             Application::where('id',$this->application_id)->update(['scheme'=>1]);
             foreach($this->assistance_sought_sp_values as $id=>$sought){
-                dd($sought);
+
                 StartUpAssistanceSought::updateOrcreate(
                     [ 'id' => $sought['id']??0 ],[
                     'application_id' =>	$this->application_id,
